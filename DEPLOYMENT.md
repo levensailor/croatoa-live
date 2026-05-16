@@ -70,15 +70,9 @@ The site loads the official widget script (`widget.bandsintown.com/main.min.js`)
 
 If your dashboard provides a **custom embed** (API key, different attributes, or `data-artist-id`), replace the anchor attributes in [`components/BandsintownEvents.tsx`](./components/BandsintownEvents.tsx) with the snippet from [Bandsintown artist tools](https://artists.bandsintown.com/artists/2609891/tools).
 
-### Fan email list (managed in Bandsintown)
+### Fan email list (Bandsintown iframe)
 
-Bandsintown’s **fan mailing list** is configured in the artist tools UI, not invented on this server.
-
-1. Open [artist tools](https://artists.bandsintown.com/artists/2609891/tools) while signed in as artist/manager.
-2. Copy the **fan / email capture** embed (script + markup or iframe).
-3. Paste into [`components/FanListEmbed.tsx`](./components/FanListEmbed.tsx) (see file header), or render via a safe pattern you control (e.g. env-driven HTML only if you trust the source).
-
-The **Fan signal** section explains this on the site for visitors; implementation stays in your repo under your control.
+The **Fan signal** section embeds Bandsintown’s hosted signup form via iframe. The URL is in [`lib/site-config.ts`](./lib/site-config.ts) as `bandsintownEmailSignupIframeSrc` (from **Signup Form** in [artist tools](https://artists.bandsintown.com/artists/2609891/tools) → Copy Code). Update colors, title, or copy there and redeploy.
 
 ---
 

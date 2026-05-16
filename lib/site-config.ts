@@ -46,6 +46,12 @@ export const bandsintownArtistToolsUrl =
 export const bandsintownArtistHomeUrl =
   "https://artists.bandsintown.com/artists/2609891";
 
+/** Bandsintown hosted email signup iframe (from artist tools → Signup Form). */
+export const bandsintownEmailSignupIframeSrc =
+  "https://bandsintown.com/artist/2609891/email_signup_form?headerTextColor=rgba(0,0,0,1)&backgroundColor=rgba(255,255,255,1)&ctaBackgroundColor=rgba(0,180,179,1)&title=FAN BOYS&headerTextStyle=normal&headerText=Sign up to get the latest updates&font=American%20Typewriter&ctaIcon=show&ctaBorderRadius=4px&ctaBorderWidth=2px&ctaBorderColor=rgba(0,180,179,1)&ctaFontColor=rgba(255,255,255,1)&alignment=center&emailInputField=show&ctaLabel=Subscribe&layout=narrow&locale=en&appId=";
+
+export const bandsintownEmailSignupIframeHeightPx = 220;
+
 export const heroImageFilename = "croatoa-bill-notext.jpg";
 
 export const spotifyEmbedSrc = `https://open.spotify.com/embed/artist/${spotifyArtistId}?utm_source=generator&theme=0`;

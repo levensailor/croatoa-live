@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { BandsintownEvents } from "@/components/BandsintownEvents";
-import { FanListPlaceholder } from "@/components/FanListPlaceholder";
+import { FanEmailSignup } from "@/components/FanEmailSignup";
 import { getBioParagraphs, getTrackTitles } from "@/lib/content";
 import {
   amazonMusicArtistUrl,
@@ -166,7 +166,7 @@ export default function HomePage() {
           <BandsintownEvents />
         </section>
 
-        <FanListPlaceholder />
+        <FanEmailSignup />
 
         <section className="panel" id="bio" aria-labelledby="bio-heading">
           <h2 id="bio-heading">Bio</h2>
