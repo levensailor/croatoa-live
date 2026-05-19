@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { BandsintownEvents } from "@/components/BandsintownEvents";
 import { FanEmailSignup } from "@/components/FanEmailSignup";
-import { getBioParagraphs, getTrackTitles } from "@/lib/content";
+import { getBioParagraphs } from "@/lib/content";
 import {
   amazonMusicArtistUrl,
   appleMusicArtistUrl,
@@ -20,7 +20,6 @@ import {
 
 export default function HomePage() {
   const bioParagraphs = getBioParagraphs();
-  const tracks = getTrackTitles();
 
   return (
     <div className="shell">
@@ -36,9 +35,8 @@ export default function HomePage() {
           <a href="#listen">Listen</a>
           <a href="#player">Play</a>
           <a href="#shows">Shows</a>
-          <a href="#fan-list">Fans</a>
+          <a href="#fan-list">Join</a>
           <a href="#bio">Bio</a>
-          <a href="#tracks">Tracks</a>
           <a href="#book">Book</a>
         </nav>
       </header>
@@ -64,11 +62,8 @@ export default function HomePage() {
           <div className="hero-side">
             <div className="hero-card">
               <h1 id="hero-heading">{artistDisplayName}</h1>
-              <p className="lede">
-                {artistTagline} Search for{" "}
-                <strong>rock band in Wilmington, NC</strong> — you found the
-                right noise.
-              </p>
+              <p className="lede">{artistTagline}</p>
+              <FanEmailSignup />
               <div className="hero-actions">
                 <a className="btn btn-primary" href="#player">
                   ▶ Drop needle
@@ -166,8 +161,6 @@ export default function HomePage() {
           <BandsintownEvents />
         </section>
 
-        <FanEmailSignup />
-
         <section className="panel" id="bio" aria-labelledby="bio-heading">
           <h2 id="bio-heading">Bio</h2>
           <div className="bio-text">
@@ -175,19 +168,6 @@ export default function HomePage() {
               <p key={`bio-${index}`}>{paragraph}</p>
             ))}
           </div>
-        </section>
-
-        <section className="panel" id="tracks" aria-labelledby="tracks-heading">
-          <h2 id="tracks-heading">Tracklist</h2>
-          <ol className="track-grid">
-            {tracks.map((title, i) => (
-              <li key={title}>
-                <span className="idx">{String(i + 1).padStart(2, "0")}</span>
-                <span className="title">{title}</span>
-                <span className="badge">ARCADE MODE</span>
-              </li>
-            ))}
-          </ol>
         </section>
 
         <section className="panel" id="book" aria-labelledby="book-heading">

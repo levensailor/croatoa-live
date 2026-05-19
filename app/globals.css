@@ -293,11 +293,16 @@ body::after {
 }
 
 .hero-card .lede {
-  margin: 0 0 1rem;
-  font-size: 1.05rem;
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+  line-height: 1.45;
   color: var(--s1);
   border-left: 4px solid var(--c4);
   padding-left: 0.75rem;
+}
+
+.hero-card .fan-inline {
+  margin: 0 0 0.85rem;
 }
 
 .hero-actions {
@@ -560,22 +565,19 @@ section.panel h2 {
   );
 }
 
-.fan-body-embed p {
-  margin-bottom: 0.75rem;
-}
-
-.fan-iframe-wrap {
-  border: 3px solid var(--s3);
-  background: #fff;
-  box-shadow: 4px 4px 0 var(--t4);
+.fan-inline {
+  width: 100%;
   overflow: hidden;
-  border-radius: 2px;
+  background: transparent;
 }
 
 .fan-iframe {
   display: block;
   border: 0;
-  min-height: 220px;
+  width: 100%;
+  min-height: 132px;
+  background: transparent;
+  color-scheme: dark;
 }
 
 .inline-code {
@@ -596,45 +598,6 @@ section.panel h2 {
 
 .bio-text p:last-child {
   margin-bottom: 0;
-}
-
-/* tracklist */
-.track-grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.5rem;
-}
-
-.track-grid li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.55rem 0.75rem;
-  font-family: var(--font-code);
-  font-size: 0.75rem;
-  border: 2px solid var(--p4);
-  background: linear-gradient(90deg, var(--t5), transparent);
-  color: var(--s1);
-}
-
-.track-grid li span.idx {
-  color: var(--s3);
-  margin-right: 0.5rem;
-}
-
-.track-grid li span.title {
-  flex: 1;
-  color: var(--p1);
-}
-
-.track-grid li span.badge {
-  font-size: 0.62rem;
-  padding: 0.15rem 0.35rem;
-  border: 1px solid var(--c5);
-  color: var(--c4);
-  background: var(--p5);
 }
 
 /* booking */
