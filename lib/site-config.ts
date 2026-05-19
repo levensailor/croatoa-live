@@ -46,11 +46,11 @@ export const bandsintownArtistToolsUrl =
 export const bandsintownArtistHomeUrl =
   "https://artists.bandsintown.com/artists/2609891";
 
-/** Bandsintown email signup iframe — dark/transparent, minimal copy (hero embed). */
+/** Bandsintown email signup iframe (hero embed) — from Signup Form → Copy Code. */
 export const bandsintownEmailSignupIframeSrc =
-  "https://bandsintown.com/artist/2609891/email_signup_form?headerTextColor=rgba(255,187,120,1)&backgroundColor=rgba(168,19,0,0)&ctaBackgroundColor=rgba(251,62,37,1)&title=&headerTextStyle=normal&headerText=&font=Helvetica&ctaIcon=hide&ctaBorderRadius=2px&ctaBorderWidth=0px&ctaBorderColor=rgba(251,62,37,1)&ctaFontColor=rgba(255,255,255,1)&alignment=left&emailInputField=show&ctaLabel=Join&layout=narrow&locale=en&appId=";
+  "https://bandsintown.com/artist/2609891/email_signup_form?headerTextColor=rgba(255,187,120,1)&backgroundColor=rgba(168,19,0,1)&ctaBackgroundColor=rgba(218,67,138,1)&title=&headerTextStyle=normal&headerText=&font=Helvetica&ctaIcon=show&ctaBorderRadius=4px&ctaBorderWidth=4px&ctaBorderColor=rgba(251,143,37,1)&ctaFontColor=rgba(255,255,255,1)&alignment=center&emailInputField=show&ctaLabel=fanboy&layout=narrow&locale=en";
 
-export const bandsintownEmailSignupIframeHeightPx = 132;
+export const bandsintownEmailSignupIframeHeightPx = 220;
 
 export const heroImageFilename = "croatoa-bill-notext.jpg";
 
