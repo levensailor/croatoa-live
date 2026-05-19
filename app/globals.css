@@ -567,6 +567,7 @@ section.panel h2 {
 
 .fan-inline {
   width: 100%;
+  height: var(--fan-iframe-visible-height, 147px);
   overflow: hidden;
   background: transparent;
 }
@@ -575,9 +576,11 @@ section.panel h2 {
   display: block;
   border: 0;
   width: 100%;
-  min-height: 220px;
+  height: var(--fan-iframe-full-height, 220px);
+  min-height: unset;
   background: transparent;
   color-scheme: dark;
+  pointer-events: auto;
 }
 
 .inline-code {

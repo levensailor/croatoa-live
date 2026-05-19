@@ -52,6 +52,9 @@ export const bandsintownEmailSignupIframeSrc =
 
 export const bandsintownEmailSignupIframeHeightPx = 220;
 
+/** Visible fraction of the signup iframe (hides bottom 1 − this). */
+export const bandsintownEmailSignupVisibleRatio = 2 / 3;
+
 export const heroImageFilename = "croatoa-bill-notext.jpg";
 
 export const spotifyEmbedSrc = `https://open.spotify.com/embed/artist/${spotifyArtistId}?utm_source=generator&theme=0`;
