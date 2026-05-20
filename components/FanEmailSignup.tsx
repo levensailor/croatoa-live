@@ -7,28 +7,20 @@ import {
   bandsintownEmailSignupLayoutWidthPx,
 } from "@/lib/site-config";
 
-const fanHostStyle = {
+const fanSignupStyle = {
   "--hero-fan-iframe-scale": bandsintownEmailSignupDisplayScale,
   "--hero-fan-layout-width": `${bandsintownEmailSignupLayoutWidthPx}px`,
 } as CSSProperties;
 
 export function FanEmailSignup() {
   return (
-    <>
-      <div
-        className="hero-actions__signup-slot hero-actions__signup-slot--email"
-        aria-hidden="true"
-      />
-      <div
-        className="hero-actions__signup-slot hero-actions__signup-slot--cta"
-        aria-hidden="true"
-      />
-      <div
-        className="hero-actions__fan-host"
-        id="fan-list"
-        aria-label="Email signup"
-        style={fanHostStyle}
-      >
+    <div
+      className="hero-actions__signup"
+      id="fan-list"
+      aria-label="Email signup"
+      style={fanSignupStyle}
+    >
+      <div className="hero-actions__fan-host">
         <div className="hero-actions__fan-scale">
           <iframe
             src={bandsintownEmailSignupIframeSrc}
@@ -40,6 +32,14 @@ export function FanEmailSignup() {
           />
         </div>
       </div>
-    </>
+      <div
+        className="hero-actions__signup-slot hero-actions__signup-slot--email"
+        aria-hidden="true"
+      />
+      <div
+        className="hero-actions__signup-slot hero-actions__signup-slot--cta"
+        aria-hidden="true"
+      />
+    </div>
   );
 }
