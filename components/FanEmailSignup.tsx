@@ -12,22 +12,33 @@ const fanIframeScaleStyle = {
 
 export function FanEmailSignup() {
   return (
-    <div
-      className="hero-actions__fan"
-      id="fan-list"
-      aria-label="Email signup"
-      style={fanIframeScaleStyle}
-    >
-      <div className="hero-actions__fan-scale">
-        <iframe
-          src={bandsintownEmailSignupIframeSrc}
-          width="100%"
-          height={bandsintownEmailSignupIframeHeightPx}
-          title={`${artistDisplayName} email signup`}
-          className="fan-iframe"
-          loading="lazy"
-        />
+    <>
+      <div
+        className="hero-actions__fan-col hero-actions__fan-col--email"
+        aria-hidden="true"
+      />
+      <div
+        className="hero-actions__fan-col hero-actions__fan-col--cta"
+        aria-hidden="true"
+      />
+      <div
+        className="hero-actions__fan-host"
+        id="fan-list"
+        aria-label="Email signup"
+        style={fanIframeScaleStyle}
+      >
+        <div className="hero-actions__fan-scale">
+          <iframe
+            src={bandsintownEmailSignupIframeSrc}
+            width="100%"
+            height={bandsintownEmailSignupIframeHeightPx}
+            title={`${artistDisplayName} email signup`}
+            className="fan-iframe"
+            loading="lazy"
+            scrolling="no"
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
