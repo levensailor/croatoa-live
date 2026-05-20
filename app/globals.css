@@ -304,7 +304,7 @@ body::after {
 .hero-actions {
   --hero-action-row-height: 5rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 0.85fr);
   gap: 0.5rem;
   align-items: stretch;
   margin-bottom: 0;
@@ -335,37 +335,64 @@ body::after {
   background: color-mix(in srgb, var(--p5) 55%, black);
 }
 
-.hero-actions__fan {
+.hero-actions__signup-slot {
+  box-sizing: border-box;
+  height: var(--hero-action-row-height);
+  overflow: hidden;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--p5) 88%, black);
+  border: 3px solid var(--s4);
+}
+
+.hero-actions__signup-slot--email {
+  grid-column: 2;
+}
+
+.hero-actions__signup-slot--cta {
+  grid-column: 3;
+}
+
+.hero-actions__fan-host {
   --hero-fan-iframe-scale: 0.6;
+  --hero-fan-layout-width: 420px;
+  --hero-fan-scale-factor: min(
+    var(--hero-fan-iframe-scale),
+    100cqw / var(--hero-fan-layout-width)
+  );
+  container-type: inline-size;
+  container-name: fan-host;
   grid-column: 2 / 4;
+  grid-row: 1;
+  position: relative;
+  z-index: 1;
   box-sizing: border-box;
   height: var(--hero-action-row-height);
   min-width: 0;
   overflow: hidden;
   line-height: 0;
-  background: color-mix(in srgb, var(--p5) 88%, black);
-  border: 3px solid var(--s4);
+  pointer-events: auto;
 }
 
 .hero-actions__fan-scale {
-  width: calc(100% / var(--hero-fan-iframe-scale));
-  height: calc(var(--hero-action-row-height) / var(--hero-fan-iframe-scale));
+  width: var(--hero-fan-layout-width);
+  height: calc(var(--hero-action-row-height) / var(--hero-fan-scale-factor));
   margin-bottom: calc(
     -1 * var(--hero-action-row-height) *
-      (1 / var(--hero-fan-iframe-scale) - 1)
+      (1 / var(--hero-fan-scale-factor) - 1)
   );
-  transform: scale(var(--hero-fan-iframe-scale));
+  transform: scale(var(--hero-fan-scale-factor));
   transform-origin: top left;
 }
 
-.hero-actions__fan .fan-iframe {
+.hero-actions__fan-host .fan-iframe {
   display: block;
-  width: 100%;
+  width: var(--hero-fan-layout-width);
   height: 100%;
   margin: 0;
   padding: 0;
   border: 0;
   background: transparent;
+  color-scheme: dark;
 }
 
 .btn {
