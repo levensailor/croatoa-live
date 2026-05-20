@@ -336,6 +336,7 @@ body::after {
 }
 
 .hero-actions__fan {
+  --hero-fan-iframe-scale: 0.72;
   grid-column: 2 / 4;
   min-width: 0;
   min-height: var(--hero-action-row-height);
@@ -344,11 +345,18 @@ body::after {
   border: 3px solid var(--s4);
 }
 
+.hero-actions__fan-scale {
+  transform: scale(var(--hero-fan-iframe-scale));
+  transform-origin: top left;
+  width: calc(100% / var(--hero-fan-iframe-scale));
+  height: calc(var(--hero-action-row-height) / var(--hero-fan-iframe-scale));
+}
+
 .hero-actions__fan .fan-iframe {
   display: block;
   width: 100%;
-  height: var(--hero-action-row-height);
-  min-height: var(--hero-action-row-height);
+  height: calc(var(--hero-action-row-height) / var(--hero-fan-iframe-scale));
+  min-height: unset;
   border: 0;
   background: transparent;
   color-scheme: dark;
