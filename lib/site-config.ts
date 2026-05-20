@@ -52,15 +52,12 @@ export const bandsintownArtistHomeUrl =
 export const bandsintownEmailSignupIframeSrc =
   "https://bandsintown.com/artist/2609891/email_signup_form?headerTextColor=rgba(246,217,158,1)&backgroundColor=rgba(168,19,0,1)&ctaBackgroundColor=rgba(218,67,138,1)&title=&headerTextStyle=normal&headerText=&font=Helvetica&ctaIcon=show&ctaBorderRadius=4px&ctaBorderWidth=4px&ctaBorderColor=rgba(251,143,37,1)&ctaFontColor=rgba(255,255,255,1)&alignment=center&emailInputField=show&ctaLabel=fanboy&layout=wide&locale=en";
 
-/** Matches `.btn` font-size (0.72rem) — scales iframe content to align with Drop needle. */
-export const bandsintownEmailSignupDisplayScale = 0.72;
+/** Scales Bandsintown signup iframe to fit the hero actions row. */
+export const bandsintownEmailSignupDisplayScale = 0.6;
 
-/** Visible height of the hero actions row after scaling (px). */
-export const bandsintownEmailSignupRowHeightPx = 132;
-
-/** Unscaled iframe height; must fit email field + fanboy CTA before scale (see `.hero-actions__fan-scale`). */
+/** Unscaled iframe height; CSS scale fits the hero row (see `.hero-actions__fan-scale`). */
 export const bandsintownEmailSignupIframeHeightPx = Math.ceil(
-  bandsintownEmailSignupRowHeightPx / bandsintownEmailSignupDisplayScale
+  80 / bandsintownEmailSignupDisplayScale
 );
 
 export const heroImageFilename = "croatoa-bill-notext.jpg";

@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react";
 import Image from "next/image";
 import { BandsintownShowsSection } from "@/components/BandsintownShowsSection";
 import { ShowsNavLink } from "@/components/ShowsNavLink";
@@ -13,7 +12,6 @@ import { getBioParagraphs } from "@/lib/content";
 import {
   artistDisplayName,
   artistTagline,
-  bandsintownEmailSignupRowHeightPx,
   bookingEmail,
   cityRegion,
   heroImageFilename,
@@ -66,14 +64,7 @@ export default function HomePage() {
             <div className="hero-card">
               <h1 id="hero-heading">{artistDisplayName}</h1>
               <p className="lede">{artistTagline}</p>
-              <div
-                className="hero-actions"
-                style={
-                  {
-                    "--hero-action-row-height": `${bandsintownEmailSignupRowHeightPx}px`,
-                  } as CSSProperties
-                }
-              >
+              <div className="hero-actions">
                 <div className="hero-actions__cell">
                   <DropNeedleButton />
                 </div>

@@ -302,7 +302,7 @@ body::after {
 }
 
 .hero-actions {
-  --hero-action-row-height: 132px;
+  --hero-action-row-height: 5rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.5rem;
@@ -335,33 +335,14 @@ body::after {
   background: color-mix(in srgb, var(--p5) 55%, black);
 }
 
-.hero-actions__fan-col {
+.hero-actions__fan {
+  --hero-fan-iframe-scale: 0.6;
+  grid-column: 2 / 4;
   min-width: 0;
   min-height: var(--hero-action-row-height);
   overflow: hidden;
   background: color-mix(in srgb, var(--p5) 88%, black);
   border: 3px solid var(--s4);
-  pointer-events: none;
-}
-
-.hero-actions__fan-col--email {
-  grid-column: 2;
-}
-
-.hero-actions__fan-col--cta {
-  grid-column: 3;
-}
-
-.hero-actions__fan-host {
-  --hero-fan-iframe-scale: 0.72;
-  grid-column: 2 / 4;
-  grid-row: 1;
-  position: relative;
-  z-index: 1;
-  min-width: 0;
-  min-height: var(--hero-action-row-height);
-  overflow: hidden;
-  pointer-events: auto;
 }
 
 .hero-actions__fan-scale {
@@ -371,7 +352,7 @@ body::after {
   height: calc(var(--hero-action-row-height) / var(--hero-fan-iframe-scale));
 }
 
-.hero-actions__fan-host .fan-iframe {
+.hero-actions__fan .fan-iframe {
   display: block;
   width: 100%;
   height: calc(var(--hero-action-row-height) / var(--hero-fan-iframe-scale));
