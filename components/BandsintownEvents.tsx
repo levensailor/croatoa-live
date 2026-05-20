@@ -12,7 +12,7 @@ type BandsintownEventsProps = {
 
 /**
  * Official Bandsintown widget loader. Styling uses BIT data attributes;
- * replace with manager-provided embed from Bandsintown artist tools if needed.
+ * replace with manager-provided embed from Bandsintown artist tools if needed..
  */
 export function BandsintownEvents({ shellRef }: BandsintownEventsProps) {
   const uid = useId().replace(/:/g, "");
