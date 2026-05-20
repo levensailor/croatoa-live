@@ -338,25 +338,32 @@ body::after {
 .hero-actions__fan {
   --hero-fan-iframe-scale: 0.6;
   grid-column: 2 / 4;
+  box-sizing: border-box;
+  height: var(--hero-action-row-height);
   min-width: 0;
-  min-height: var(--hero-action-row-height);
   overflow: hidden;
+  line-height: 0;
   background: color-mix(in srgb, var(--p5) 88%, black);
   border: 3px solid var(--s4);
 }
 
 .hero-actions__fan-scale {
-  transform: scale(var(--hero-fan-iframe-scale));
-  transform-origin: top left;
   width: calc(100% / var(--hero-fan-iframe-scale));
   height: calc(var(--hero-action-row-height) / var(--hero-fan-iframe-scale));
+  margin-bottom: calc(
+    -1 * var(--hero-action-row-height) *
+      (1 / var(--hero-fan-iframe-scale) - 1)
+  );
+  transform: scale(var(--hero-fan-iframe-scale));
+  transform-origin: top left;
 }
 
 .hero-actions__fan .fan-iframe {
   display: block;
   width: 100%;
-  height: calc(var(--hero-action-row-height) / var(--hero-fan-iframe-scale));
-  min-height: unset;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   border: 0;
   background: transparent;
   color-scheme: dark;
