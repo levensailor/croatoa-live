@@ -48,19 +48,6 @@ export const bandsintownArtistToolsUrl =
 export const bandsintownArtistHomeUrl =
   "https://artists.bandsintown.com/artists/2609891";
 
-/** Bandsintown email signup iframe (hero actions row) — Signup Form → Copy Code. */
-export const bandsintownEmailSignupIframeSrc =
-  "https://bandsintown.com/artist/2609891/email_signup_form?headerTextColor=rgba(246,217,158,1)&backgroundColor=rgba(168,19,0,1)&ctaBackgroundColor=rgba(218,67,138,1)&title=&headerTextStyle=normal&headerText=&font=Helvetica&ctaIcon=show&ctaBorderRadius=4px&ctaBorderWidth=4px&ctaBorderColor=rgba(251,143,37,1)&ctaFontColor=rgba(255,255,255,1)&alignment=left&emailInputField=show&ctaLabel=fanboy&layout=wide&locale=en";
-
-/** Max scale for Bandsintown signup iframe (see container query in `.hero-actions__fan-host`). */
-export const bandsintownEmailSignupDisplayScale = 0.6;
-
-/** Layout viewport width so Bandsintown `layout=wide` keeps email + CTA on one row. */
-export const bandsintownEmailSignupLayoutWidthPx = 420;
-
-/** Unscaled iframe height for wide (single-row) layout. */
-export const bandsintownEmailSignupIframeHeightPx = 56;
-
 export const heroImageFilename = "croatoa-bill-notext.jpg";
 
 export const spotifyEmbedSrc = `https://open.spotify.com/embed/artist/${spotifyArtistId}?utm_source=generator&theme=0`;

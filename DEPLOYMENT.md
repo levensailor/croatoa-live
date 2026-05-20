@@ -70,12 +70,6 @@ The site loads the official widget script (`widget.bandsintown.com/main.min.js`)
 
 If your dashboard provides a **custom embed** (API key, different attributes, or `data-artist-id`), replace the anchor attributes in [`components/BandsintownEvents.tsx`](./components/BandsintownEvents.tsx) with the snippet from [Bandsintown artist tools](https://artists.bandsintown.com/artists/2609891/tools).
 
-### Fan email list (Bandsintown iframe)
-
-The **Fan signal** section embeds Bandsintown’s hosted signup form via iframe. The URL is in [`lib/site-config.ts`](./lib/site-config.ts) as `bandsintownEmailSignupIframeSrc` (from **Signup Form** in [artist tools](https://artists.bandsintown.com/artists/2609891/tools) → Copy Code). Update colors, title, or copy there and redeploy.
-
----
-
 ## Spotify embed and “play counts”
 
 The homepage embeds Spotify’s **official iframe** for the artist (`/embed/artist/…`). Streams are attributed by **Spotify’s own rules** (signed-in listener, valid playback session, etc.) — same class of playback as the Spotify app / web player. The site includes a short disclaimer next to the player.

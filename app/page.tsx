@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { BandsintownShowsSection } from "@/components/BandsintownShowsSection";
 import { ShowsNavLink } from "@/components/ShowsNavLink";
-import { FanEmailSignup } from "@/components/FanEmailSignup";
 import { DropNeedleButton } from "@/components/DropNeedleButton";
 import { StreamingLogos } from "@/components/StreamingLogos";
 import {
@@ -35,7 +34,6 @@ export default function HomePage() {
           <a href="#listen">Listen</a>
           <a href="#player">Play</a>
           <ShowsNavLink />
-          <a href="#fan-list">Join</a>
           <a href="#bio">Bio</a>
           <a href="#book">Book</a>
         </nav>
@@ -68,9 +66,10 @@ export default function HomePage() {
                 <div className="hero-actions__cell">
                   <DropNeedleButton />
                 </div>
-                <FanEmailSignup />
+                <div className="hero-actions__streams">
+                  <StreamingLogos />
+                </div>
               </div>
-              <StreamingLogos />
             </div>
           </div>
         </section>

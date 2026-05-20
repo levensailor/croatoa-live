@@ -304,9 +304,9 @@ body::after {
 .hero-actions {
   --hero-action-row-height: 5rem;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-columns: auto minmax(0, 1fr);
   gap: 0.5rem;
-  align-items: stretch;
+  align-items: center;
   margin-bottom: 0;
 }
 
@@ -335,74 +335,22 @@ body::after {
   background: color-mix(in srgb, var(--p5) 55%, black);
 }
 
-.hero-actions__signup {
-  --hero-fan-iframe-scale: 0.6;
-  --hero-fan-layout-width: 420px;
-  --hero-fan-scale-factor: min(
-    var(--hero-fan-iframe-scale),
-    100cqw / var(--hero-fan-layout-width)
-  );
-  container-type: inline-size;
-  container-name: fan-signup;
-  grid-column: 2 / 4;
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  grid-template-rows: var(--hero-action-row-height);
-  gap: 0.5rem;
+.hero-actions__streams {
+  display: flex;
+  align-items: center;
   min-width: 0;
+  min-height: var(--hero-action-row-height);
 }
 
-/* Email (left) and fanboy CTA (right) frames — decorative; iframe sits in fan-host below */
-.hero-actions__signup::before,
-.hero-actions__signup::after {
-  content: "";
-  grid-row: 1;
-  box-sizing: border-box;
-  border: 3px solid var(--s4);
-  pointer-events: none;
-  z-index: 1;
-}
-
-.hero-actions__signup::before {
-  grid-column: 1;
-}
-
-.hero-actions__signup::after {
-  grid-column: 2;
-}
-
-.hero-actions__fan-host {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  z-index: 0;
-  box-sizing: border-box;
-  height: var(--hero-action-row-height);
-  min-width: 0;
-  overflow: hidden;
-  line-height: 0;
-  pointer-events: auto;
-}
-
-.hero-actions__fan-scale {
-  width: var(--hero-fan-layout-width);
-  height: calc(var(--hero-action-row-height) / var(--hero-fan-scale-factor));
-  margin-bottom: calc(
-    -1 * var(--hero-action-row-height) *
-      (1 / var(--hero-fan-scale-factor) - 1)
-  );
-  transform: scale(var(--hero-fan-scale-factor));
-  transform-origin: top left;
-}
-
-.hero-actions__fan-host .fan-iframe {
-  display: block;
-  width: var(--hero-fan-layout-width);
-  height: 100%;
+.hero-actions__streams .stream-logos {
   margin: 0;
   padding: 0;
-  border: 0;
-  background: transparent;
-  color-scheme: dark;
+  width: 100%;
+}
+
+.hero-actions__streams .stream-logos-list {
+  flex-wrap: wrap;
+  gap: 0.45rem 0.6rem;
 }
 
 .btn {
@@ -526,8 +474,8 @@ section.panel h2 {
 }
 
 .stream-logos {
-  margin-top: 0.75rem;
-  padding-top: 0.5rem;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .stream-logos-list {
