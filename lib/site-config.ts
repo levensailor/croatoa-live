@@ -16,6 +16,8 @@ export const bookingEmail = "booking@croatoa.live";
 
 export const spotifyArtistId = "1dzdmLN2CPvHGvl9vu4EpX";
 
+export const spotifyArtistUri = `spotify:artist:${spotifyArtistId}`;
+
 export const spotifyArtistUrl =
   "https://open.spotify.com/artist/1dzdmLN2CPvHGvl9vu4EpX?si=eQCxva2ESH607_ceLqXa0g";
 

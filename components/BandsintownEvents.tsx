@@ -1,16 +1,20 @@
 "use client";
 
-import { useEffect, useId } from "react";
+import { useEffect, useId, type RefObject } from "react";
 import {
   artistDisplayName,
   bandsintownPublicFallbackUrl,
 } from "@/lib/site-config";
 
+type BandsintownEventsProps = {
+  shellRef?: RefObject<HTMLDivElement | null>;
+};
+
 /**
  * Official Bandsintown widget loader. Styling uses BIT data attributes;
  * replace with manager-provided embed from Bandsintown artist tools if needed.
  */
-export function BandsintownEvents() {
+export function BandsintownEvents({ shellRef }: BandsintownEventsProps) {
   const uid = useId().replace(/:/g, "");
 
   useEffect(() => {
@@ -27,7 +31,7 @@ export function BandsintownEvents() {
   }, []);
 
   return (
-    <div className="bit-shell">
+    <div className="bit-shell" ref={shellRef}>
       <a
         id={`bit-events-${uid}`}
         className="bit-widget-initializer"

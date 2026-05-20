@@ -1,7 +1,13 @@
 import Image from "next/image";
-import { BandsintownEvents } from "@/components/BandsintownEvents";
+import { BandsintownShowsSection } from "@/components/BandsintownShowsSection";
+import { ShowsHeroLink, ShowsNavLink } from "@/components/ShowsNavLink";
 import { FanEmailSignup } from "@/components/FanEmailSignup";
+import { DropNeedleButton } from "@/components/DropNeedleButton";
 import { StreamingLogos } from "@/components/StreamingLogos";
+import {
+  SpotifyEmbedHost,
+  SpotifyPlayerProvider,
+} from "@/components/SpotifyPlayerProvider";
 import { getBioParagraphs } from "@/lib/content";
 import {
   artistDisplayName,
@@ -10,7 +16,6 @@ import {
   cityRegion,
   heroImageFilename,
   spotifyArtistUrl,
-  spotifyEmbedSrc,
 } from "@/lib/site-config";
 
 export default function HomePage() {
@@ -29,13 +34,14 @@ export default function HomePage() {
         <nav className="nav-chips" aria-label="Page sections">
           <a href="#listen">Listen</a>
           <a href="#player">Play</a>
-          <a href="#shows">Shows</a>
+          <ShowsNavLink />
           <a href="#fan-list">Join</a>
           <a href="#bio">Bio</a>
           <a href="#book">Book</a>
         </nav>
       </header>
 
+      <SpotifyPlayerProvider>
       <main id="main">
         <section className="hero" aria-labelledby="hero-heading">
           <div className="tv-frame">
@@ -60,12 +66,8 @@ export default function HomePage() {
               <p className="lede">{artistTagline}</p>
               <FanEmailSignup />
               <div className="hero-actions">
-                <a className="btn btn-primary" href="#player">
-                  ▶ Drop needle
-                </a>
-                <a className="btn btn-secondary" href="#shows">
-                  Live feed
-                </a>
+                <DropNeedleButton />
+                <ShowsHeroLink className="btn btn-secondary">Live feed</ShowsHeroLink>
                 <a className="btn btn-comp" href={spotifyArtistUrl} target="_blank" rel="noreferrer">
                   Spotify app
                 </a>
@@ -81,15 +83,7 @@ export default function HomePage() {
           aria-labelledby="player-heading"
         >
           <h2 id="player-heading">Now playing — Spotify embed</h2>
-          <div className="player-wrap">
-            <iframe
-              title={`Spotify player — ${artistDisplayName}`}
-              src={spotifyEmbedSrc}
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
-          </div>
+          <SpotifyEmbedHost />
           <p className="player-note">
             Playback runs on Spotify&apos;s embed player — streams count toward
             Spotify when listeners are signed in and playback meets
@@ -102,10 +96,7 @@ export default function HomePage() {
           </p>
         </section>
 
-        <section className="panel" id="shows" aria-labelledby="shows-heading">
-          <h2 id="shows-heading">Upcoming — Bandsintown</h2>
-          <BandsintownEvents />
-        </section>
+        <BandsintownShowsSection />
 
         <section className="panel" id="bio" aria-labelledby="bio-heading">
           <h2 id="bio-heading">Bio</h2>
@@ -133,6 +124,7 @@ export default function HomePage() {
           </div>
         </section>
       </main>
+      </SpotifyPlayerProvider>
 
       <footer className="site-footer">
         <p>

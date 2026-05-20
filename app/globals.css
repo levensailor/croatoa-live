@@ -330,6 +330,11 @@ body::after {
     box-shadow 0.1s ease;
 }
 
+button.btn {
+  appearance: none;
+  background: none;
+}
+
 .btn:active {
   transform: translate(2px, 2px);
 }
@@ -467,7 +472,11 @@ section.panel h2 {
   border-radius: 2px;
 }
 
-.player-wrap iframe {
+.spotify-embed-host {
+  width: 100%;
+}
+
+.spotify-embed-host iframe {
   width: 100%;
   min-height: 380px;
   border: 0;
@@ -486,6 +495,20 @@ section.panel h2 {
   font-family: var(--font-code);
   font-size: 0.78em;
   color: var(--t1);
+}
+
+/* Bandsintown shows — hidden while widget detects upcoming dates */
+.shows-panel.shows-panel--loading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  box-shadow: none;
 }
 
 /* Bandsintown */
