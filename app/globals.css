@@ -309,6 +309,7 @@ body::after {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-bottom: 0;
 }
 
 .btn {
@@ -386,43 +387,68 @@ section.panel h2 {
   text-shadow: 2px 2px 0 var(--t5);
 }
 
-.grid-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 0.65rem;
+.stream-logos {
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
 }
 
-.stream-tile {
+.stream-logos-list {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
-  padding: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stream-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
   text-decoration: none;
-  color: var(--s1);
-  border: 3px solid var(--s4);
-  background: linear-gradient(135deg, var(--t5), var(--p5));
-  min-height: 88px;
-  box-shadow: 4px 4px 0 var(--c5);
-  transition: transform 0.12s ease;
+  opacity: 0.88;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
 }
 
-.stream-tile:hover {
-  transform: translate(-2px, -2px);
-  border-color: var(--c3);
+.stream-logo:hover {
+  opacity: 1;
+  transform: scale(1.08);
 }
 
-.stream-tile .label {
-  font-family: var(--font-pixel);
-  font-size: 0.55rem;
-  letter-spacing: 0.1em;
-  color: var(--p2);
+.stream-logo:focus-visible {
+  outline: 2px solid var(--c1);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-.stream-tile .sub {
-  font-size: 0.75rem;
-  color: var(--c1);
-  font-weight: 600;
+.stream-logo--spotify {
+  color: #1db954;
+}
+
+.stream-logo--apple {
+  color: #fc3c44;
+}
+
+.stream-logo--tidal {
+  color: #fff;
+}
+
+.stream-logo--amazon {
+  color: #25d1da;
+}
+
+.stream-logo--youtube {
+  color: #ff0033;
+}
+
+.stream-logo--instagram {
+  color: #e4405f;
 }
 
 .player-panel {

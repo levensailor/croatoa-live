@@ -1,21 +1,16 @@
 import Image from "next/image";
 import { BandsintownEvents } from "@/components/BandsintownEvents";
 import { FanEmailSignup } from "@/components/FanEmailSignup";
+import { StreamingLogos } from "@/components/StreamingLogos";
 import { getBioParagraphs } from "@/lib/content";
 import {
-  amazonMusicArtistUrl,
-  appleMusicArtistUrl,
   artistDisplayName,
   artistTagline,
   bookingEmail,
   cityRegion,
   heroImageFilename,
-  instagramHandle,
-  instagramUrl,
   spotifyArtistUrl,
   spotifyEmbedSrc,
-  tidalArtistUrl,
-  youtubeMusicArtistUrl,
 } from "@/lib/site-config";
 
 export default function HomePage() {
@@ -75,57 +70,8 @@ export default function HomePage() {
                   Spotify app
                 </a>
               </div>
+              <StreamingLogos />
             </div>
-          </div>
-        </section>
-
-        <section className="panel" id="listen" aria-labelledby="listen-heading">
-          <h2 id="listen-heading">Stream everywhere</h2>
-          <div className="grid-links">
-            <a
-              className="stream-tile"
-              href={spotifyArtistUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="label">Spotify</span>
-              <span className="sub">Artist profile</span>
-            </a>
-            <a
-              className="stream-tile"
-              href={appleMusicArtistUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="label">Apple</span>
-              <span className="sub">Music</span>
-            </a>
-            <a className="stream-tile" href={tidalArtistUrl} target="_blank" rel="noreferrer">
-              <span className="label">Tidal</span>
-              <span className="sub">Hi-res</span>
-            </a>
-            <a
-              className="stream-tile"
-              href={amazonMusicArtistUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="label">Amazon</span>
-              <span className="sub">Music</span>
-            </a>
-            <a
-              className="stream-tile"
-              href={youtubeMusicArtistUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span className="label">YouTube</span>
-              <span className="sub">Music</span>
-            </a>
-            <a className="stream-tile" href={instagramUrl} target="_blank" rel="noreferrer">
-              <span className="label">IG</span>
-              <span className="sub">@{instagramHandle}</span>
-            </a>
           </div>
         </section>
 
