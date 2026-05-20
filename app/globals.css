@@ -301,13 +301,10 @@ body::after {
   padding-left: 0.75rem;
 }
 
-.hero-card .fan-inline {
-  margin: 0 0 0.85rem;
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   gap: 0.5rem;
   margin-bottom: 0;
 }
@@ -654,11 +651,20 @@ section.panel h2 {
   );
 }
 
-.fan-inline {
-  width: 100%;
-  height: var(--fan-iframe-visible-height, 147px);
+.fan-inline--actions {
+  flex: 1 1 12rem;
+  min-width: 10rem;
+  max-width: 100%;
+  height: var(--fan-iframe-display-height, 145px);
   overflow: hidden;
   background: transparent;
+}
+
+.fan-inline--actions .fan-scale {
+  transform: scale(var(--fan-iframe-scale, 0.66));
+  transform-origin: top left;
+  width: calc(100% / var(--fan-iframe-scale, 0.66));
+  height: calc(var(--fan-iframe-full-height, 220px) / var(--fan-iframe-scale, 0.66));
 }
 
 .fan-iframe {

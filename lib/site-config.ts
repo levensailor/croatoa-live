@@ -48,14 +48,14 @@ export const bandsintownArtistToolsUrl =
 export const bandsintownArtistHomeUrl =
   "https://artists.bandsintown.com/artists/2609891";
 
-/** Bandsintown email signup iframe (hero embed) — from Signup Form → Copy Code. */
+/** Bandsintown email signup iframe (hero actions row) — Signup Form → Copy Code. */
 export const bandsintownEmailSignupIframeSrc =
-  "https://bandsintown.com/artist/2609891/email_signup_form?headerTextColor=rgba(255,187,120,1)&backgroundColor=rgba(168,19,0,1)&ctaBackgroundColor=rgba(218,67,138,1)&title=&headerTextStyle=normal&headerText=&font=Helvetica&ctaIcon=show&ctaBorderRadius=4px&ctaBorderWidth=4px&ctaBorderColor=rgba(251,143,37,1)&ctaFontColor=rgba(255,255,255,1)&alignment=center&emailInputField=show&ctaLabel=fanboy&layout=narrow&locale=en";
+  "https://bandsintown.com/artist/2609891/email_signup_form?headerTextColor=rgba(246,217,158,1)&backgroundColor=rgba(168,19,0,1)&ctaBackgroundColor=rgba(218,67,138,1)&title=&headerTextStyle=normal&headerText=&font=Helvetica&ctaIcon=show&ctaBorderRadius=4px&ctaBorderWidth=4px&ctaBorderColor=rgba(251,143,37,1)&ctaFontColor=rgba(255,255,255,1)&alignment=center&emailInputField=show&ctaLabel=fanboy&layout=wide&locale=en";
 
 export const bandsintownEmailSignupIframeHeightPx = 220;
 
-/** Visible fraction of the signup iframe (hides bottom 1 − this). */
-export const bandsintownEmailSignupVisibleRatio = 2 / 3;
+/** Visual scale for signup embed in the hero actions row (66% of native size). */
+export const bandsintownEmailSignupDisplayScale = 0.66;
 
 export const heroImageFilename = "croatoa-bill-notext.jpg";
 

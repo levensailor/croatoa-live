@@ -64,13 +64,10 @@ export default function HomePage() {
             <div className="hero-card">
               <h1 id="hero-heading">{artistDisplayName}</h1>
               <p className="lede">{artistTagline}</p>
-              <FanEmailSignup />
               <div className="hero-actions">
                 <DropNeedleButton />
                 <ShowsHeroLink className="btn btn-secondary">Live feed</ShowsHeroLink>
-                <a className="btn btn-comp" href={spotifyArtistUrl} target="_blank" rel="noreferrer">
-                  Spotify app
-                </a>
+                <FanEmailSignup />
               </div>
               <StreamingLogos />
             </div>
