@@ -50,7 +50,7 @@ export const bandsintownArtistHomeUrl =
 
 /** Bandsintown email signup iframe (hero actions row) — Signup Form → Copy Code. */
 export const bandsintownEmailSignupIframeSrc =
-  "https://bandsintown.com/artist/2609891/email_signup_form?headerTextColor=rgba(246,217,158,1)&backgroundColor=rgba(168,19,0,1)&ctaBackgroundColor=rgba(218,67,138,1)&title=&headerTextStyle=normal&headerText=&font=Helvetica&ctaIcon=show&ctaBorderRadius=4px&ctaBorderWidth=4px&ctaBorderColor=rgba(251,143,37,1)&ctaFontColor=rgba(255,255,255,1)&alignment=center&emailInputField=show&ctaLabel=fanboy&layout=wide&locale=en";
+  "https://bandsintown.com/artist/2609891/email_signup_form?headerTextColor=rgba(246,217,158,1)&backgroundColor=rgba(168,19,0,0)&ctaBackgroundColor=rgba(218,67,138,1)&title=&headerTextStyle=normal&headerText=&font=Helvetica&ctaIcon=show&ctaBorderRadius=4px&ctaBorderWidth=4px&ctaBorderColor=rgba(251,143,37,1)&ctaFontColor=rgba(255,255,255,1)&alignment=left&emailInputField=show&ctaLabel=fanboy&layout=wide&locale=en";
 
 /** Scales Bandsintown signup iframe to fit the hero actions row. */
 export const bandsintownEmailSignupDisplayScale = 0.6;
