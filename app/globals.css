@@ -332,7 +332,7 @@ body::after {
 
 button.btn {
   appearance: none;
-  background: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn:active {
@@ -348,6 +348,46 @@ button.btn {
 
 .btn-primary:hover {
   background: var(--s2);
+  color: var(--p5);
+}
+
+/* Buttons: keep label readable after click/focus (no link :visited/:active fade) */
+button.btn-primary,
+button.btn-primary:hover,
+button.btn-primary:focus,
+button.btn-primary:focus-visible,
+button.btn-primary:active {
+  color: var(--p5);
+  background: var(--s1);
+  border-color: var(--p3);
+}
+
+button.btn-primary:hover {
+  background: var(--s2);
+}
+
+button.btn-primary:focus-visible {
+  outline: 2px solid var(--c1);
+  outline-offset: 2px;
+}
+
+a.btn:visited {
+  color: inherit;
+}
+
+a.btn-primary:visited {
+  color: var(--p5);
+  background: var(--s1);
+}
+
+a.btn-secondary:visited {
+  color: var(--s1);
+  background: var(--t4);
+}
+
+a.btn-comp:visited {
+  color: var(--p5);
+  background: var(--c1);
 }
 
 .btn-secondary {
