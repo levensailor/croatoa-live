@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { BandsintownShowsSection } from "@/components/BandsintownShowsSection";
-import { ShowsHeroLink, ShowsNavLink } from "@/components/ShowsNavLink";
+import { ShowsNavLink } from "@/components/ShowsNavLink";
 import { FanEmailSignup } from "@/components/FanEmailSignup";
 import { DropNeedleButton } from "@/components/DropNeedleButton";
 import { StreamingLogos } from "@/components/StreamingLogos";
@@ -65,8 +65,9 @@ export default function HomePage() {
               <h1 id="hero-heading">{artistDisplayName}</h1>
               <p className="lede">{artistTagline}</p>
               <div className="hero-actions">
-                <DropNeedleButton />
-                <ShowsHeroLink className="btn btn-secondary">Live feed</ShowsHeroLink>
+                <div className="hero-actions__cell">
+                  <DropNeedleButton />
+                </div>
                 <FanEmailSignup />
               </div>
               <StreamingLogos />

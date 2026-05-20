@@ -302,11 +302,56 @@ body::after {
 }
 
 .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  --hero-action-row-height: 5rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.5rem;
+  align-items: stretch;
   margin-bottom: 0;
+}
+
+.hero-actions__cell {
+  display: flex;
+  min-width: 0;
+  min-height: var(--hero-action-row-height);
+}
+
+.hero-actions__cell .btn,
+.hero-actions__placeholder {
+  width: 100%;
+  flex: 1;
+  align-self: stretch;
+  min-height: var(--hero-action-row-height);
+}
+
+.hero-actions__cell .btn {
+  padding-left: 0.35rem;
+  padding-right: 0.35rem;
+}
+
+.hero-actions__placeholder {
+  display: block;
+  border: 3px dashed color-mix(in srgb, var(--s4) 45%, transparent);
+  background: color-mix(in srgb, var(--p5) 55%, black);
+}
+
+.hero-actions__fan {
+  grid-column: 2 / 4;
+  min-width: 0;
+  min-height: var(--hero-action-row-height);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--p5) 88%, black);
+  border: 3px solid var(--s4);
+}
+
+.hero-actions__fan .fan-iframe {
+  display: block;
+  width: 100%;
+  height: var(--hero-action-row-height);
+  min-height: var(--hero-action-row-height);
+  border: 0;
+  background: transparent;
+  color-scheme: dark;
 }
 
 .btn {
@@ -649,33 +694,6 @@ section.panel h2 {
     transparent 8px,
     transparent 16px
   );
-}
-
-.fan-inline--actions {
-  flex: 1 1 12rem;
-  min-width: 10rem;
-  max-width: 100%;
-  height: var(--fan-iframe-display-height, 145px);
-  overflow: hidden;
-  background: transparent;
-}
-
-.fan-inline--actions .fan-scale {
-  transform: scale(var(--fan-iframe-scale, 0.66));
-  transform-origin: top left;
-  width: calc(100% / var(--fan-iframe-scale, 0.66));
-  height: calc(var(--fan-iframe-full-height, 220px) / var(--fan-iframe-scale, 0.66));
-}
-
-.fan-iframe {
-  display: block;
-  border: 0;
-  width: 100%;
-  height: var(--fan-iframe-full-height, 220px);
-  min-height: unset;
-  background: transparent;
-  color-scheme: dark;
-  pointer-events: auto;
 }
 
 .inline-code {
