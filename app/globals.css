@@ -347,9 +347,28 @@ body::after {
   grid-column: 2 / 4;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-rows: var(--hero-action-row-height);
   gap: 0.5rem;
   min-width: 0;
-  position: relative;
+}
+
+/* Email (left) and fanboy CTA (right) frames — decorative; iframe sits in fan-host below */
+.hero-actions__signup::before,
+.hero-actions__signup::after {
+  content: "";
+  grid-row: 1;
+  box-sizing: border-box;
+  border: 3px solid var(--s4);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-actions__signup::before {
+  grid-column: 1;
+}
+
+.hero-actions__signup::after {
+  grid-column: 2;
 }
 
 .hero-actions__fan-host {
@@ -362,25 +381,6 @@ body::after {
   overflow: hidden;
   line-height: 0;
   pointer-events: auto;
-}
-
-.hero-actions__signup-slot {
-  grid-row: 1;
-  box-sizing: border-box;
-  height: var(--hero-action-row-height);
-  overflow: hidden;
-  pointer-events: none;
-  background: transparent;
-  border: 3px solid var(--s4);
-  z-index: 1;
-}
-
-.hero-actions__signup-slot--email {
-  grid-column: 1;
-}
-
-.hero-actions__signup-slot--cta {
-  grid-column: 2;
 }
 
 .hero-actions__fan-scale {

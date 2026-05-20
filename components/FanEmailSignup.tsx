@@ -32,14 +32,6 @@ export function FanEmailSignup() {
           />
         </div>
       </div>
-      <div
-        className="hero-actions__signup-slot hero-actions__signup-slot--email"
-        aria-hidden="true"
-      />
-      <div
-        className="hero-actions__signup-slot hero-actions__signup-slot--cta"
-        aria-hidden="true"
-      />
     </div>
   );
 }
