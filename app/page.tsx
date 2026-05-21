@@ -14,7 +14,6 @@ import {
   bookingEmail,
   cityRegion,
   heroImageFilename,
-  spotifyArtistUrl,
 } from "@/lib/site-config";
 
 export default function HomePage() {
@@ -81,16 +80,6 @@ export default function HomePage() {
         >
           <h2 id="player-heading">Now playing — Spotify embed</h2>
           <SpotifyEmbedHost />
-          <p className="player-note">
-            Playback runs on Spotify&apos;s embed player — streams count toward
-            Spotify when listeners are signed in and playback meets
-            Spotify&apos;s normal streaming rules (same as playing in the
-            Spotify app or web player). If audio is blocked, open the{" "}
-            <a href={spotifyArtistUrl} target="_blank" rel="noreferrer">
-              artist profile
-            </a>{" "}
-            directly.
-          </p>
         </section>
 
         <BandsintownShowsSection />

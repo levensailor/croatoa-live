@@ -713,20 +713,6 @@ section.panel h2 {
   background: var(--spotify-embed-chrome);
 }
 
-.player-note {
-  margin-top: 0.75rem;
-  font-size: 0.82rem;
-  color: var(--s2);
-  border-left: 4px solid var(--p3);
-  padding-left: 0.75rem;
-}
-
-.player-note code {
-  font-family: var(--font-code);
-  font-size: 0.78em;
-  color: var(--t1);
-}
-
 /* Bandsintown shows — hidden while widget detects upcoming dates */
 .shows-panel.shows-panel--loading {
   position: absolute;
