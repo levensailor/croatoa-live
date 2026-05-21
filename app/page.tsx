@@ -75,25 +75,27 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section
-          className="panel player-panel"
-          id="player"
-          aria-labelledby="player-heading"
-        >
-          <h2 id="player-heading">Now playing — Spotify embed</h2>
-          <SpotifyEmbedHost />
-        </section>
+        <div className="listen-bio-row">
+          <section
+            className="panel player-panel"
+            id="player"
+            aria-labelledby="player-heading"
+          >
+            <h2 id="player-heading">Now playing — Spotify embed</h2>
+            <SpotifyEmbedHost />
+          </section>
+
+          <section className="panel bio-panel" id="bio" aria-labelledby="bio-heading">
+            <h2 id="bio-heading">Bio</h2>
+            <div className="bio-text">
+              {bioParagraphs.map((paragraph, index) => (
+                <p key={`bio-${index}`}>{paragraph}</p>
+              ))}
+            </div>
+          </section>
+        </div>
 
         <BandsintownShowsSection />
-
-        <section className="panel" id="bio" aria-labelledby="bio-heading">
-          <h2 id="bio-heading">Bio</h2>
-          <div className="bio-text">
-            {bioParagraphs.map((paragraph, index) => (
-              <p key={`bio-${index}`}>{paragraph}</p>
-            ))}
-          </div>
-        </section>
 
         <section className="panel" id="book" aria-labelledby="book-heading">
           <h2 id="book-heading">Booking</h2>
