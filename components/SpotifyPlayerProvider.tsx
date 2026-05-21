@@ -13,7 +13,7 @@ import {
   normalizePlaybackUpdate,
   type SpotifyEmbedController,
 } from "@/components/spotify/embed-controller";
-import { spotifyArtistUri } from "@/lib/site-config";
+import { spotifyArtistUri, spotifyEmbedTheme } from "@/lib/site-config";
 
 const EMBED_HEIGHT_PX = 380;
 
@@ -54,6 +54,7 @@ export function SpotifyPlayerProvider({ children }: { children: ReactNode }) {
           uri: spotifyArtistUri,
           width: "100%",
           height: String(EMBED_HEIGHT_PX),
+          theme: spotifyEmbedTheme,
         },
         (next) => {
           if (cancelled) return;

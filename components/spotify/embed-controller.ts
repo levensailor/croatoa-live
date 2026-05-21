@@ -24,10 +24,18 @@ export type SpotifyEmbedController = {
   ) => void;
 };
 
+export type SpotifyEmbedControllerOptions = {
+  uri: string;
+  width?: string;
+  height?: string;
+  /** Undocumented but supported — `"dark"` maps to `theme=0` on the embed URL. */
+  theme?: "dark";
+};
+
 export type SpotifyIFrameApi = {
   createController: (
     element: HTMLElement,
-    options: { uri: string; width?: string; height?: string },
+    options: SpotifyEmbedControllerOptions,
     callback: (controller: SpotifyEmbedController) => void,
   ) => void;
 };

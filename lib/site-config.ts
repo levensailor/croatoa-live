@@ -50,4 +50,9 @@ export const bandsintownArtistHomeUrl =
 
 export const heroImageFilename = "croatoa-bill-notext.jpg";
 
+/** Dark embed variant (`theme=0`) for static iframe URLs; iFrame API uses `spotifyEmbedTheme`. */
 export const spotifyEmbedSrc = `https://open.spotify.com/embed/artist/${spotifyArtistId}?utm_source=generator&theme=0`;
+
+/** Spotify iFrame API theme — only `dark` is supported (maps to `theme=0` on the embed URL). */
+export const spotifyEmbedTheme = "dark" as const;
+

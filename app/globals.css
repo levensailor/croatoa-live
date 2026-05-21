@@ -682,20 +682,26 @@ section.panel h2 {
   border-color: var(--c4);
   background: linear-gradient(
     180deg,
-    color-mix(in srgb, var(--c5) 35%, var(--p5)) 0%,
-    var(--t5) 100%
+    var(--p5) 0%,
+    color-mix(in srgb, var(--p5) 70%, var(--t5)) 100%
   );
 }
 
 .player-wrap {
-  border: 4px dashed var(--t2);
-  padding: 0.5rem;
-  background: rgb(0 0 0 / 55%);
-  border-radius: 2px;
+  --spotify-embed-chrome: var(--p5);
+  border: 3px solid var(--s4);
+  padding: 0.35rem;
+  background: var(--spotify-embed-chrome);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--p3) 25%, transparent);
 }
 
 .spotify-embed-host {
   width: 100%;
+  background: var(--spotify-embed-chrome);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .spotify-embed-host iframe {
@@ -703,6 +709,8 @@ section.panel h2 {
   min-height: 380px;
   border: 0;
   display: block;
+  border-radius: 10px;
+  background: var(--spotify-embed-chrome);
 }
 
 .player-note {
