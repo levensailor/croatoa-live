@@ -318,6 +318,87 @@ body::after {
   min-height: var(--hero-action-row-height);
 }
 
+/* Sleeping dog — below turntable + streaming row */
+.hero-dog {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.65rem;
+  padding-top: 0.35rem;
+  border-top: 2px dashed color-mix(in srgb, var(--s4) 35%, transparent);
+}
+
+.sleeping-dog {
+  width: min(100%, 11.5rem);
+  line-height: 0;
+}
+
+.sleeping-dog__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.sleeping-dog__shadow {
+  fill: color-mix(in srgb, var(--p5) 55%, black);
+  opacity: 0.45;
+}
+
+.sleeping-dog__zzz-text {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  fill: var(--s2);
+  opacity: 0.85;
+}
+
+.sleeping-dog__head {
+  transform-origin: 78px 68px;
+  animation: sleeping-dog-head-wake 5.5s ease-in-out infinite;
+}
+
+.sleeping-dog__zzz {
+  animation: sleeping-dog-zzz-fade 5.5s ease-in-out infinite;
+}
+
+@keyframes sleeping-dog-head-wake {
+  0%,
+  68%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  74% {
+    transform: rotate(-26deg) translateY(-6px);
+  }
+  80% {
+    transform: rotate(-22deg) translateY(-5px);
+  }
+  86% {
+    transform: rotate(-26deg) translateY(-6px);
+  }
+  92% {
+    transform: rotate(0deg) translateY(0);
+  }
+}
+
+@keyframes sleeping-dog-zzz-fade {
+  0%,
+  68%,
+  100% {
+    opacity: 1;
+  }
+  74%,
+  90% {
+    opacity: 0.15;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sleeping-dog__head,
+  .sleeping-dog__zzz {
+    animation: none;
+  }
+}
+
 /* Turntable control — fixed 5rem square (same footprint as former button cell) */
 .drop-needle {
   --drop-needle-size: var(--hero-action-row-height);

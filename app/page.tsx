@@ -2,6 +2,7 @@ import Image from "next/image";
 import { BandsintownShowsSection } from "@/components/BandsintownShowsSection";
 import { ShowsNavLink } from "@/components/ShowsNavLink";
 import { DropNeedleButton } from "@/components/DropNeedleButton";
+import { SleepingDog } from "@/components/SleepingDog";
 import { StreamingLogos } from "@/components/StreamingLogos";
 import {
   SpotifyEmbedHost,
@@ -69,6 +70,7 @@ export default function HomePage() {
                   <StreamingLogos />
                 </div>
               </div>
+              <SleepingDog />
             </div>
           </div>
         </section>
