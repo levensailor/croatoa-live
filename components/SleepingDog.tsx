@@ -1,73 +1,88 @@
-/** Decorative sleeping dog below hero CTA / streaming row. */
+/** Duck Hunt–style hound that walks inside the hero card CTA strip. */
 export function SleepingDog() {
   return (
     <div className="hero-dog">
-      <div
-        className="sleeping-dog"
-        role="img"
-        aria-label="Sleeping dog resting near the player controls"
-      >
-        <svg
-          className="sleeping-dog__svg"
-          viewBox="0 0 240 112"
-          xmlns="http://www.w3.org/2000/svg"
-          focusable="false"
+      <div className="hero-dog__track" aria-hidden="true">
+        <div
+          className="duck-hound"
+          role="img"
+          aria-label="Hound dog walking across the hero card; hover to scratch its ear"
         >
-          <ellipse
-            className="sleeping-dog__shadow"
-            cx="118"
-            cy="98"
-            rx="72"
-            ry="10"
-          />
-          <g className="sleeping-dog__body">
-            <ellipse cx="118" cy="72" rx="58" ry="26" fill="#c48a4a" />
-            <ellipse cx="148" cy="66" rx="22" ry="18" fill="#b67d42" />
-            <path
-              d="M62 70 Q48 58 54 48 Q62 42 70 52"
-              fill="#a86f38"
-              stroke="#7a4f24"
-              strokeWidth="2"
+          <svg
+            className="duck-hound__svg"
+            viewBox="0 0 80 56"
+            xmlns="http://www.w3.org/2000/svg"
+            focusable="false"
+            shapeRendering="crispEdges"
+          >
+            <ellipse
+              className="duck-hound__shadow"
+              cx="40"
+              cy="52"
+              rx="24"
+              ry="3"
+              fill="#120c08"
+              opacity="0.4"
             />
-            <path
-              d="M168 58 Q188 44 196 52 Q200 62 182 68"
-              fill="#a86f38"
-              stroke="#7a4f24"
-              strokeWidth="2"
+            <g className="duck-hound__walk-legs">
+              <rect
+                className="duck-hound__leg duck-hound__leg--back"
+                x="22"
+                y="38"
+                width="4"
+                height="14"
+                fill="#2a1810"
+              />
+              <rect
+                className="duck-hound__leg duck-hound__leg--front"
+                x="48"
+                y="38"
+                width="4"
+                height="14"
+                fill="#2a1810"
+              />
+            </g>
+            <rect
+              className="duck-hound__tail"
+              x="54"
+              y="24"
+              width="6"
+              height="4"
+              fill="#2a1810"
             />
-            <ellipse cx="78" cy="78" rx="10" ry="7" fill="#8f5f32" />
-            <ellipse cx="102" cy="82" rx="9" ry="6" fill="#8f5f32" />
-            <ellipse cx="128" cy="82" rx="9" ry="6" fill="#8f5f32" />
-            <ellipse cx="154" cy="78" rx="10" ry="7" fill="#8f5f32" />
-          </g>
-          <g className="sleeping-dog__head">
-            <ellipse cx="52" cy="64" rx="34" ry="26" fill="#d49a55" />
-            <ellipse cx="34" cy="58" rx="14" ry="20" fill="#b67d42" />
-            <ellipse cx="68" cy="54" rx="12" ry="18" fill="#b67d42" />
-            <ellipse cx="58" cy="70" rx="20" ry="14" fill="#f0d2a8" />
-            <circle cx="44" cy="58" r="4" fill="#2a1810" />
-            <circle cx="45" cy="57" r="1.2" fill="#fff8ef" />
-            <ellipse cx="66" cy="74" rx="7" ry="5" fill="#2a1810" />
-            <path
-              d="M38 78 Q48 84 58 78"
-              fill="none"
-              stroke="#7a4f24"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </g>
-          <g className="sleeping-dog__zzz">
-            <text x="176" y="36" className="sleeping-dog__zzz-text">
-              z
-            </text>
-            <text x="194" y="24" className="sleeping-dog__zzz-text">
-              z
-            </text>
-            <text x="212" y="14" className="sleeping-dog__zzz-text">
-              z
-            </text>
-          </g>
-        </svg>
+            <g className="duck-hound__body">
+              <rect x="24" y="24" width="28" height="15" fill="#9a5c2e" />
+              <rect x="28" y="26" width="16" height="9" fill="#2a1810" />
+              <rect x="44" y="28" width="6" height="5" fill="#7a4a24" />
+            </g>
+            <g className="duck-hound__head">
+              <rect x="10" y="20" width="16" height="13" fill="#b06a34" />
+              <rect
+                className="duck-hound__ear"
+                x="6"
+                y="12"
+                width="7"
+                height="24"
+                fill="#1a120c"
+              />
+              <rect x="8" y="28" width="12" height="7" fill="#efe2c8" />
+              <rect x="6" y="32" width="7" height="4" fill="#1a120c" />
+              <rect x="22" y="24" width="4" height="4" fill="#f8f2e8" />
+              <rect x="23" y="25" width="2" height="2" fill="#1a120c" />
+            </g>
+            <g className="duck-hound__scratch-paw">
+              <rect
+                className="duck-hound__paw"
+                x="12"
+                y="6"
+                width="7"
+                height="6"
+                fill="#2a1810"
+              />
+              <rect x="11" y="5" width="4" height="2" fill="#efe2c8" />
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
   );

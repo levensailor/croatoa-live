@@ -318,84 +318,204 @@ body::after {
   min-height: var(--hero-action-row-height);
 }
 
-/* Sleeping dog — below turntable + streaming row */
+/* Duck Hunt hound — walks inside hero-card (CTA border) */
 .hero-dog {
-  display: flex;
-  justify-content: flex-end;
+  --duck-hound-size: 3.75rem;
+  --duck-hound-travel: calc(100% - var(--duck-hound-size));
   margin-top: 0.65rem;
   padding-top: 0.35rem;
   border-top: 2px dashed color-mix(in srgb, var(--s4) 35%, transparent);
 }
 
-.sleeping-dog {
-  width: min(100%, 11.5rem);
-  line-height: 0;
+.hero-dog__track {
+  position: relative;
+  width: 100%;
+  height: calc(var(--duck-hound-size) + 0.35rem);
+  overflow: hidden;
+  pointer-events: none;
 }
 
-.sleeping-dog__svg {
+.duck-hound {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: var(--duck-hound-size);
+  height: var(--duck-hound-size);
+  line-height: 0;
+  pointer-events: auto;
+  cursor: default;
+  animation: duck-hound-walk 14s linear infinite;
+}
+
+.duck-hound__svg {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   overflow: visible;
 }
 
-.sleeping-dog__shadow {
-  fill: color-mix(in srgb, var(--p5) 55%, black);
-  opacity: 0.45;
+.duck-hound__tail {
+  transform-origin: 54px 26px;
+  animation: duck-hound-tail 0.28s steps(2) infinite;
 }
 
-.sleeping-dog__zzz-text {
-  font-family: var(--font-pixel);
-  font-size: 14px;
-  fill: var(--s2);
-  opacity: 0.85;
+.duck-hound__walk-legs .duck-hound__leg--front {
+  transform-origin: 50px 38px;
+  animation: duck-hound-leg-front 0.28s steps(2) infinite;
 }
 
-.sleeping-dog__head {
-  transform-origin: 78px 68px;
-  animation: sleeping-dog-head-wake 5.5s ease-in-out infinite;
+.duck-hound__walk-legs .duck-hound__leg--back {
+  transform-origin: 24px 38px;
+  animation: duck-hound-leg-back 0.28s steps(2) infinite;
 }
 
-.sleeping-dog__zzz {
-  animation: sleeping-dog-zzz-fade 5.5s ease-in-out infinite;
+.duck-hound__scratch-paw {
+  opacity: 0;
+  pointer-events: none;
 }
 
-@keyframes sleeping-dog-head-wake {
+.duck-hound__scratch-paw .duck-hound__paw {
+  transform-origin: 13px 13px;
+}
+
+.duck-hound:hover {
+  animation-play-state: paused;
+}
+
+.duck-hound:hover .duck-hound__walk-legs {
+  opacity: 0;
+}
+
+.duck-hound:hover .duck-hound__scratch-paw {
+  opacity: 1;
+}
+
+.duck-hound:hover .duck-hound__scratch-paw .duck-hound__paw {
+  animation: duck-hound-scratch-paw 0.22s ease-in-out infinite;
+}
+
+.duck-hound:hover .duck-hound__head {
+  animation: duck-hound-scratch-head 0.22s ease-in-out infinite;
+}
+
+.duck-hound:hover .duck-hound__ear {
+  animation: duck-hound-scratch-ear 0.18s ease-in-out infinite;
+}
+
+.duck-hound:hover .duck-hound__tail {
+  animation: none;
+}
+
+@keyframes duck-hound-walk {
+  0% {
+    left: 0;
+    transform: scaleX(-1);
+  }
+  49% {
+    left: var(--duck-hound-travel);
+    transform: scaleX(-1);
+  }
+  50% {
+    left: var(--duck-hound-travel);
+    transform: scaleX(1);
+  }
+  99% {
+    left: 0;
+    transform: scaleX(1);
+  }
+  100% {
+    left: 0;
+    transform: scaleX(-1);
+  }
+}
+
+@keyframes duck-hound-tail {
   0%,
-  68%,
+  49% {
+    transform: rotate(0deg);
+  }
+  50%,
+  100% {
+    transform: rotate(-12deg);
+  }
+}
+
+@keyframes duck-hound-leg-front {
+  0%,
+  49% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50%,
+  100% {
+    transform: rotate(18deg) translateY(-2px);
+  }
+}
+
+@keyframes duck-hound-leg-back {
+  0%,
+  49% {
+    transform: rotate(18deg) translateY(-2px);
+  }
+  50%,
   100% {
     transform: rotate(0deg) translateY(0);
   }
-  74% {
-    transform: rotate(-26deg) translateY(-6px);
+}
+
+@keyframes duck-hound-scratch-paw {
+  0%,
+  100% {
+    transform: rotate(-8deg) translate(0, 0);
   }
-  80% {
-    transform: rotate(-22deg) translateY(-5px);
-  }
-  86% {
-    transform: rotate(-26deg) translateY(-6px);
-  }
-  92% {
-    transform: rotate(0deg) translateY(0);
+  50% {
+    transform: rotate(42deg) translate(2px, -4px);
   }
 }
 
-@keyframes sleeping-dog-zzz-fade {
+@keyframes duck-hound-scratch-head {
   0%,
-  68%,
   100% {
-    opacity: 1;
+    transform: rotate(0deg);
   }
-  74%,
-  90% {
-    opacity: 0.15;
+  50% {
+    transform: rotate(-10deg) translateY(1px);
   }
+}
+
+@keyframes duck-hound-scratch-ear {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+.duck-hound__head {
+  transform-origin: 16px 26px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sleeping-dog__head,
-  .sleeping-dog__zzz {
+  .duck-hound {
+    left: 50%;
+    transform: translateX(-50%);
     animation: none;
+  }
+
+  .duck-hound__walk-legs .duck-hound__leg--front,
+  .duck-hound__walk-legs .duck-hound__leg--back {
+    animation: none;
+  }
+
+  .duck-hound:hover .duck-hound__walk-legs {
+    opacity: 1;
+  }
+
+  .duck-hound:hover .duck-hound__scratch-paw .duck-hound__paw,
+  .duck-hound:hover .duck-hound__head,
+  .duck-hound:hover .duck-hound__ear {
+    animation-duration: 0.45s;
   }
 }
 
