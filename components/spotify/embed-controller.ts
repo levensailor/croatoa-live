@@ -1,10 +1,27 @@
 /** Minimal types for Spotify’s embed iFrame API (no npm package). */
 
+export type SpotifyPlaybackUpdate = {
+  isPaused: boolean;
+  isBuffering?: boolean;
+  position?: number;
+  duration?: number;
+  playingURI?: string;
+};
+
+export type SpotifyEmbedEventMap = {
+  ready: void;
+  playback_started: { playingURI?: string };
+  playback_update: SpotifyPlaybackUpdate;
+};
+
 export type SpotifyEmbedController = {
   play: () => void;
   resume: () => void;
   togglePlay: () => void;
-  addListener: (event: "ready", callback: () => void) => void;
+  addListener: <E extends keyof SpotifyEmbedEventMap>(
+    event: E,
+    callback: (payload: SpotifyEmbedEventMap[E]) => void,
+  ) => void;
 };
 
 export type SpotifyIFrameApi = {
@@ -50,4 +67,14 @@ export function loadSpotifyIframeApi(): Promise<SpotifyIFrameApi> {
     script.async = true;
     document.body.appendChild(script);
   });
+}
+
+/** Spotify wraps playback fields under `data` in playback_update callbacks. */
+export function normalizePlaybackUpdate(
+  payload: SpotifyPlaybackUpdate | { data?: SpotifyPlaybackUpdate },
+): SpotifyPlaybackUpdate {
+  if (payload && "data" in payload && payload.data) {
+    return payload.data;
+  }
+  return payload as SpotifyPlaybackUpdate;
 }

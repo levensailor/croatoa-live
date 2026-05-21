@@ -10,6 +10,7 @@ import {
 } from "react";
 import {
   loadSpotifyIframeApi,
+  normalizePlaybackUpdate,
   type SpotifyEmbedController,
 } from "@/components/spotify/embed-controller";
 import { spotifyArtistUri } from "@/lib/site-config";
@@ -18,6 +19,7 @@ const EMBED_HEIGHT_PX = 380;
 
 type SpotifyPlayerContextValue = {
   ready: boolean;
+  isPlaying: boolean;
   playFromNeedle: () => void;
   setEmbedHost: (node: HTMLDivElement | null) => void;
 };
@@ -36,6 +38,7 @@ export function SpotifyPlayerProvider({ children }: { children: ReactNode }) {
     null,
   );
   const [ready, setReady] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     if (!embedHost) return;
@@ -58,12 +61,21 @@ export function SpotifyPlayerProvider({ children }: { children: ReactNode }) {
           next.addListener("ready", () => {
             if (!cancelled) setReady(true);
           });
+          next.addListener("playback_update", (payload) => {
+            if (cancelled) return;
+            const update = normalizePlaybackUpdate(payload);
+            setIsPlaying(!update.isPaused);
+          });
+          next.addListener("playback_started", () => {
+            if (!cancelled) setIsPlaying(true);
+          });
         },
       );
     });
 
     return () => {
       cancelled = true;
+      setIsPlaying(false);
     };
   }, [embedHost]);
 
@@ -82,7 +94,7 @@ export function SpotifyPlayerProvider({ children }: { children: ReactNode }) {
 
   return (
     <SpotifyPlayerContext.Provider
-      value={{ ready, playFromNeedle, setEmbedHost }}
+      value={{ ready, isPlaying, playFromNeedle, setEmbedHost }}
     >
       {children}
     </SpotifyPlayerContext.Provider>
