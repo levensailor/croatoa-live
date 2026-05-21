@@ -346,8 +346,19 @@ body::after {
   line-height: 0;
   pointer-events: auto;
   cursor: default;
-  /* Facing is baked into patrol.gif (right walk/sniff, then flopped left walk/sniff). */
   animation: duck-hound-patrol-move var(--duck-hound-patrol-duration) linear infinite;
+}
+
+/* Instant flip at turn — GIF is always right-facing; no baked mirror frames */
+.duck-hound__face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-origin: center bottom;
+  backface-visibility: hidden;
+  isolation: isolate;
+  animation: duck-hound-face-flip var(--duck-hound-patrol-duration) linear infinite;
+  animation-timing-function: steps(1, jump-end);
 }
 
 .duck-hound__gif {
@@ -357,6 +368,7 @@ body::after {
   object-fit: contain;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
+  backface-visibility: hidden;
   user-select: none;
   pointer-events: none;
 }
@@ -376,7 +388,8 @@ body::after {
   transform-origin: 8px 14px;
 }
 
-.duck-hound:hover {
+.duck-hound:hover,
+.duck-hound:hover .duck-hound__face {
   animation-play-state: paused;
 }
 
@@ -393,7 +406,18 @@ body::after {
   animation: duck-hound-scratch-paw 0.2s ease-in-out infinite;
 }
 
-/* Synced to patrol.gif: walk right → sniff → walk left (flipped frames) → sniff */
+@keyframes duck-hound-face-flip {
+  0%,
+  50% {
+    transform: scaleX(1);
+  }
+  50.01%,
+  100% {
+    transform: scaleX(-1);
+  }
+}
+
+/* Synced to patrol.gif: walk → sniff → walk → sniff (same frames; flip at 50%) */
 @keyframes duck-hound-patrol-move {
   0% {
     left: 0;
