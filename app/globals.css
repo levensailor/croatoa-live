@@ -385,6 +385,13 @@ button.drop-needle:focus-visible {
   height: 88%;
   border-radius: 50%;
   background:
+    conic-gradient(
+      from 0deg,
+      color-mix(in srgb, var(--s1) 55%, transparent) 0deg 14deg,
+      transparent 14deg 48deg,
+      color-mix(in srgb, var(--t2) 35%, transparent) 48deg 62deg,
+      transparent 62deg 360deg
+    ),
     repeating-radial-gradient(
       circle at 50% 50%,
       var(--p5) 0 1px,
@@ -392,13 +399,18 @@ button.drop-needle:focus-visible {
     ),
     radial-gradient(circle at 50% 50%, var(--t5) 0%, var(--p5) 72%);
   box-shadow: inset 0 0 6px rgb(0 0 0 / 45%);
+  transform: rotate(0deg);
+  will-change: transform;
 }
 
 .drop-needle--playing .drop-needle__disc {
-  animation: drop-needle-spin 2.8s linear infinite;
+  animation: drop-needle-spin 1.35s linear infinite;
 }
 
 @keyframes drop-needle-spin {
+  from {
+    transform: rotate(0deg);
+  }
   to {
     transform: rotate(360deg);
   }
@@ -416,6 +428,20 @@ button.drop-needle:focus-visible {
   box-shadow:
     inset 0 0 0 1px color-mix(in srgb, var(--s1) 40%, transparent),
     0 0 0 1px rgb(0 0 0 / 25%);
+}
+
+/* Strobe notch — makes rotation obvious at a glance */
+.drop-needle__disc::after {
+  content: "";
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  width: 4px;
+  height: 20%;
+  margin-left: -2px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--s1), var(--p2));
+  box-shadow: 0 0 4px color-mix(in srgb, var(--s1) 65%, transparent);
 }
 
 .drop-needle__arm {

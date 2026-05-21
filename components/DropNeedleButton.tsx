@@ -28,7 +28,7 @@ export function DropNeedleButton() {
         "drop-needle",
         "drop-needle--ready",
         dropped && "drop-needle--dropped",
-        player.isPlaying && "drop-needle--playing",
+        dropped && player.isPlaying && "drop-needle--playing",
       ]
         .filter(Boolean)
         .join(" ")}

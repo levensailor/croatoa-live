@@ -59,15 +59,19 @@ export function SpotifyPlayerProvider({ children }: { children: ReactNode }) {
           if (cancelled) return;
           setController(next);
           next.addListener("ready", () => {
-            if (!cancelled) setReady(true);
-          });
-          next.addListener("playback_update", (payload) => {
             if (cancelled) return;
-            const update = normalizePlaybackUpdate(payload);
-            setIsPlaying(!update.isPaused);
-          });
-          next.addListener("playback_started", () => {
-            if (!cancelled) setIsPlaying(true);
+            setReady(true);
+            /* Playback listeners must attach after ready (Spotify iFrame API). */
+            next.addListener("playback_update", (payload) => {
+              if (cancelled) return;
+              const update = normalizePlaybackUpdate(payload);
+              if (typeof update.isPaused === "boolean") {
+                setIsPlaying(!update.isPaused);
+              }
+            });
+            next.addListener("playback_started", () => {
+              if (!cancelled) setIsPlaying(true);
+            });
           });
         },
       );
@@ -81,6 +85,7 @@ export function SpotifyPlayerProvider({ children }: { children: ReactNode }) {
 
   const playFromNeedle = useCallback(() => {
     if (!controller) return;
+    setIsPlaying(true);
     document.getElementById("player")?.scrollIntoView({
       behavior: "smooth",
       block: "start",
