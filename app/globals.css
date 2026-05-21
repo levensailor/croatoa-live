@@ -346,7 +346,7 @@ body::after {
   line-height: 0;
   pointer-events: auto;
   cursor: default;
-  transform-origin: center bottom;
+  /* Facing is baked into patrol.gif (right walk/sniff, then flopped left walk/sniff). */
   animation: duck-hound-patrol-move var(--duck-hound-patrol-duration) linear infinite;
 }
 
@@ -393,31 +393,25 @@ body::after {
   animation: duck-hound-scratch-paw 0.2s ease-in-out infinite;
 }
 
-/* Synced to patrol.gif: walk → sniff right → turn → walk left → sniff left */
+/* Synced to patrol.gif: walk right → sniff → walk left (flipped frames) → sniff */
 @keyframes duck-hound-patrol-move {
   0% {
     left: 0;
-    transform: scaleX(-1);
   }
   30% {
     left: var(--duck-hound-travel);
-    transform: scaleX(-1);
   }
   50% {
     left: var(--duck-hound-travel);
-    transform: scaleX(-1);
   }
   51% {
     left: var(--duck-hound-travel);
-    transform: scaleX(1);
   }
   80% {
     left: 0;
-    transform: scaleX(1);
   }
   100% {
     left: 0;
-    transform: scaleX(-1);
   }
 }
 
@@ -434,7 +428,7 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   .duck-hound {
     left: 50%;
-    transform: translateX(-50%);
+    margin-left: calc(var(--duck-hound-width) / -2);
     animation: none;
   }
 
