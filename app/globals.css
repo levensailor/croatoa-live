@@ -318,10 +318,11 @@ body::after {
   min-height: var(--hero-action-row-height);
 }
 
-/* Duck Hunt hound — walks inside hero-card (CTA border) */
+/* Duck Hunt hound — NES sprites walk inside hero-card (CTA border) */
 .hero-dog {
-  --duck-hound-size: 3.75rem;
-  --duck-hound-travel: calc(100% - var(--duck-hound-size));
+  --duck-hound-width: 4.6rem;
+  --duck-hound-height: calc(var(--duck-hound-width) * 45 / 46);
+  --duck-hound-travel: calc(100% - var(--duck-hound-width));
   margin-top: 0.65rem;
   padding-top: 0.35rem;
   border-top: 2px dashed color-mix(in srgb, var(--s4) 35%, transparent);
@@ -330,7 +331,7 @@ body::after {
 .hero-dog__track {
   position: relative;
   width: 100%;
-  height: calc(var(--duck-hound-size) + 0.35rem);
+  height: calc(var(--duck-hound-height) + 0.35rem);
   overflow: hidden;
   pointer-events: none;
 }
@@ -339,71 +340,72 @@ body::after {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: var(--duck-hound-size);
-  height: var(--duck-hound-size);
+  width: var(--duck-hound-width);
+  height: var(--duck-hound-height);
   line-height: 0;
   pointer-events: auto;
   cursor: default;
   animation: duck-hound-walk 14s linear infinite;
 }
 
-.duck-hound__svg {
-  display: block;
+.duck-hound__sprites {
+  position: relative;
   width: 100%;
   height: 100%;
-  overflow: visible;
+  transform-origin: 50% 85%;
 }
 
-.duck-hound__tail {
-  transform-origin: 54px 26px;
-  animation: duck-hound-tail 0.28s steps(2) infinite;
-}
-
-.duck-hound__walk-legs .duck-hound__leg--front {
-  transform-origin: 50px 38px;
-  animation: duck-hound-leg-front 0.28s steps(2) infinite;
-}
-
-.duck-hound__walk-legs .duck-hound__leg--back {
-  transform-origin: 24px 38px;
-  animation: duck-hound-leg-back 0.28s steps(2) infinite;
-}
-
-.duck-hound__scratch-paw {
-  opacity: 0;
+.duck-hound__frame {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  user-select: none;
   pointer-events: none;
 }
 
-.duck-hound__scratch-paw .duck-hound__paw {
-  transform-origin: 13px 13px;
+.duck-hound__frame--b {
+  opacity: 0;
+  animation: duck-hound-sprite-step 0.36s steps(1, end) infinite;
+}
+
+.duck-hound__scratch {
+  position: absolute;
+  top: 8%;
+  left: 18%;
+  width: 32%;
+  height: 32%;
+  opacity: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.duck-hound__scratch-paw {
+  transform-origin: 8px 14px;
 }
 
 .duck-hound:hover {
   animation-play-state: paused;
 }
 
-.duck-hound:hover .duck-hound__walk-legs {
+.duck-hound:hover .duck-hound__frame--b {
+  animation-play-state: paused;
   opacity: 0;
 }
 
-.duck-hound:hover .duck-hound__scratch-paw {
+.duck-hound:hover .duck-hound__sprites {
+  animation: duck-hound-scratch-bob 0.24s ease-in-out infinite;
+}
+
+.duck-hound:hover .duck-hound__scratch {
   opacity: 1;
 }
 
-.duck-hound:hover .duck-hound__scratch-paw .duck-hound__paw {
-  animation: duck-hound-scratch-paw 0.22s ease-in-out infinite;
-}
-
-.duck-hound:hover .duck-hound__head {
-  animation: duck-hound-scratch-head 0.22s ease-in-out infinite;
-}
-
-.duck-hound:hover .duck-hound__ear {
-  animation: duck-hound-scratch-ear 0.18s ease-in-out infinite;
-}
-
-.duck-hound:hover .duck-hound__tail {
-  animation: none;
+.duck-hound:hover .duck-hound__scratch-paw {
+  animation: duck-hound-scratch-paw 0.2s ease-in-out infinite;
 }
 
 @keyframes duck-hound-walk {
@@ -429,71 +431,30 @@ body::after {
   }
 }
 
-@keyframes duck-hound-tail {
+@keyframes duck-hound-sprite-step {
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes duck-hound-scratch-bob {
   0%,
-  49% {
+  100% {
     transform: rotate(0deg);
   }
-  50%,
-  100% {
-    transform: rotate(-12deg);
-  }
-}
-
-@keyframes duck-hound-leg-front {
-  0%,
-  49% {
-    transform: rotate(0deg) translateY(0);
-  }
-  50%,
-  100% {
-    transform: rotate(18deg) translateY(-2px);
-  }
-}
-
-@keyframes duck-hound-leg-back {
-  0%,
-  49% {
-    transform: rotate(18deg) translateY(-2px);
-  }
-  50%,
-  100% {
-    transform: rotate(0deg) translateY(0);
+  50% {
+    transform: rotate(-6deg) translateY(1px);
   }
 }
 
 @keyframes duck-hound-scratch-paw {
   0%,
   100% {
-    transform: rotate(-8deg) translate(0, 0);
+    transform: rotate(8deg) translate(0, 0);
   }
   50% {
-    transform: rotate(42deg) translate(2px, -4px);
+    transform: rotate(-52deg) translate(-2px, -5px);
   }
-}
-
-@keyframes duck-hound-scratch-head {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(-10deg) translateY(1px);
-  }
-}
-
-@keyframes duck-hound-scratch-ear {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(6deg);
-  }
-}
-
-.duck-hound__head {
-  transform-origin: 16px 26px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -503,18 +464,13 @@ body::after {
     animation: none;
   }
 
-  .duck-hound__walk-legs .duck-hound__leg--front,
-  .duck-hound__walk-legs .duck-hound__leg--back {
+  .duck-hound__frame--b {
     animation: none;
+    opacity: 0;
   }
 
-  .duck-hound:hover .duck-hound__walk-legs {
-    opacity: 1;
-  }
-
-  .duck-hound:hover .duck-hound__scratch-paw .duck-hound__paw,
-  .duck-hound:hover .duck-hound__head,
-  .duck-hound:hover .duck-hound__ear {
+  .duck-hound:hover .duck-hound__sprites,
+  .duck-hound:hover .duck-hound__scratch-paw {
     animation-duration: 0.45s;
   }
 }
