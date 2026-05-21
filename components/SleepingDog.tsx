@@ -1,11 +1,10 @@
 import Image from "next/image";
 
-const WALK_FRAME_0 = "/duck-hound-walk-0.png";
-const WALK_FRAME_1 = "/duck-hound-walk-1.png";
-const SPRITE_W = 46;
-const SPRITE_H = 45;
+const PATROL_GIF = "/duck-hound-patrol.gif";
+const SPRITE_W = 96;
+const SPRITE_H = 76;
 
-/** Duck Hunt hound (cropped NES-style sprites) walks inside the hero card CTA strip. */
+/** Duck Hunt hound patrol: walk, sniff, turn — GIF synced to hero-card travel. */
 export function SleepingDog() {
   return (
     <div className="hero-dog">
@@ -13,28 +12,17 @@ export function SleepingDog() {
         <div
           className="duck-hound"
           role="img"
-          aria-label="Hound dog walking across the hero card; hover to scratch its ear"
+          aria-label="Hound walking and sniffing across the hero card; hover to scratch its ear"
         >
-          <div className="duck-hound__sprites">
-            <Image
-              src={WALK_FRAME_0}
-              alt=""
-              width={SPRITE_W}
-              height={SPRITE_H}
-              className="duck-hound__frame duck-hound__frame--a"
-              unoptimized
-              draggable={false}
-            />
-            <Image
-              src={WALK_FRAME_1}
-              alt=""
-              width={SPRITE_W}
-              height={SPRITE_H}
-              className="duck-hound__frame duck-hound__frame--b"
-              unoptimized
-              draggable={false}
-            />
-          </div>
+          <Image
+            src={PATROL_GIF}
+            alt=""
+            width={SPRITE_W}
+            height={SPRITE_H}
+            className="duck-hound__gif"
+            unoptimized
+            draggable={false}
+          />
           <svg
             className="duck-hound__scratch"
             viewBox="0 0 16 16"

@@ -318,11 +318,12 @@ body::after {
   min-height: var(--hero-action-row-height);
 }
 
-/* Duck Hunt hound — NES sprites walk inside hero-card (CTA border) */
+/* Duck Hunt hound — patrol GIF (walk / sniff / turn) inside hero-card */
 .hero-dog {
-  --duck-hound-width: 4.6rem;
-  --duck-hound-height: calc(var(--duck-hound-width) * 45 / 46);
+  --duck-hound-width: 4.8rem;
+  --duck-hound-height: calc(var(--duck-hound-width) * 76 / 96);
   --duck-hound-travel: calc(100% - var(--duck-hound-width));
+  --duck-hound-patrol-duration: 6s;
   margin-top: 0.65rem;
   padding-top: 0.35rem;
   border-top: 2px dashed color-mix(in srgb, var(--s4) 35%, transparent);
@@ -345,39 +346,27 @@ body::after {
   line-height: 0;
   pointer-events: auto;
   cursor: default;
-  animation: duck-hound-walk 14s linear infinite;
+  transform-origin: center bottom;
+  animation: duck-hound-patrol-move var(--duck-hound-patrol-duration) linear infinite;
 }
 
-.duck-hound__sprites {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-origin: 50% 85%;
-}
-
-.duck-hound__frame {
-  position: absolute;
-  inset: 0;
+.duck-hound__gif {
+  display: block;
   width: 100% !important;
   height: 100% !important;
-  object-fit: fill;
+  object-fit: contain;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   user-select: none;
   pointer-events: none;
 }
 
-.duck-hound__frame--b {
-  opacity: 0;
-  animation: duck-hound-sprite-step 0.36s steps(1, end) infinite;
-}
-
 .duck-hound__scratch {
   position: absolute;
-  top: 8%;
-  left: 18%;
-  width: 32%;
-  height: 32%;
+  top: 6%;
+  left: 16%;
+  width: 34%;
+  height: 34%;
   opacity: 0;
   overflow: visible;
   pointer-events: none;
@@ -391,13 +380,9 @@ body::after {
   animation-play-state: paused;
 }
 
-.duck-hound:hover .duck-hound__frame--b {
-  animation-play-state: paused;
-  opacity: 0;
-}
-
-.duck-hound:hover .duck-hound__sprites {
-  animation: duck-hound-scratch-bob 0.24s ease-in-out infinite;
+.duck-hound:hover .duck-hound__gif {
+  opacity: 0.92;
+  filter: brightness(1.05);
 }
 
 .duck-hound:hover .duck-hound__scratch {
@@ -408,42 +393,31 @@ body::after {
   animation: duck-hound-scratch-paw 0.2s ease-in-out infinite;
 }
 
-@keyframes duck-hound-walk {
+/* Synced to patrol.gif: walk → sniff right → turn → walk left → sniff left */
+@keyframes duck-hound-patrol-move {
   0% {
     left: 0;
     transform: scaleX(-1);
   }
-  49% {
+  30% {
     left: var(--duck-hound-travel);
     transform: scaleX(-1);
   }
   50% {
     left: var(--duck-hound-travel);
+    transform: scaleX(-1);
+  }
+  51% {
+    left: var(--duck-hound-travel);
     transform: scaleX(1);
   }
-  99% {
+  80% {
     left: 0;
     transform: scaleX(1);
   }
   100% {
     left: 0;
     transform: scaleX(-1);
-  }
-}
-
-@keyframes duck-hound-sprite-step {
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes duck-hound-scratch-bob {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(-6deg) translateY(1px);
   }
 }
 
@@ -464,12 +438,6 @@ body::after {
     animation: none;
   }
 
-  .duck-hound__frame--b {
-    animation: none;
-    opacity: 0;
-  }
-
-  .duck-hound:hover .duck-hound__sprites,
   .duck-hound:hover .duck-hound__scratch-paw {
     animation-duration: 0.45s;
   }
