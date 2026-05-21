@@ -358,7 +358,6 @@ body::after {
   backface-visibility: hidden;
   isolation: isolate;
   animation: duck-hound-face-flip var(--duck-hound-patrol-duration) linear infinite;
-  animation-timing-function: steps(1, jump-end);
 }
 
 .duck-hound__gif {
