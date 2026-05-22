@@ -50,12 +50,6 @@ export const bandsintownArtistHomeUrl =
 
 export const heroImageFilename = "croatoa-bill-notext.jpg";
 
-/** Dark embed variant (`theme=0`) for static iframe URLs; iFrame API uses `spotifyEmbedTheme`. */
-export const spotifyEmbedSrc = `https://open.spotify.com/embed/artist/${spotifyArtistId}?utm_source=generator&theme=0`;
-
-/** Spotify iFrame API theme — only `dark` is supported (maps to `theme=0` on the embed URL). */
-export const spotifyEmbedTheme = "dark" as const;
-
-/** Compact artist embed height (px) for the homepage player panel. */
-export const spotifyEmbedHeightPx = 336;
+/** Minimum height (px) for the Web Playback SDK player — fits now-playing + 8-track queue. */
+export const spotifyPlayerMinHeightPx = 512;
 

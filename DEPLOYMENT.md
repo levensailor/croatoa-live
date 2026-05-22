@@ -70,9 +70,23 @@ The site loads the official widget script (`widget.bandsintown.com/main.min.js`)
 
 If your dashboard provides a **custom embed** (API key, different attributes, or `data-artist-id`), replace the anchor attributes in [`components/BandsintownEvents.tsx`](./components/BandsintownEvents.tsx) with the snippet from [Bandsintown artist tools](https://artists.bandsintown.com/artists/2609891/tools).
 
-## Spotify embed and “play counts”
+## Spotify Web Playback SDK
 
-The homepage embeds Spotify’s **official iframe** for the artist (`/embed/artist/…`). Streams are attributed by **Spotify’s own rules** (signed-in listener, valid playback session, etc.) — same class of playback as the Spotify app / web player. The site includes a short disclaimer next to the player.
+The homepage player uses Spotify’s [**Web Playback SDK**](https://developer.spotify.com/documentation/web-playback-sdk) (not the iframe embed). Visitors log in with Spotify **Premium**; playback runs in the browser via a custom player styled to match the site.
+
+### Vercel environment variables
+
+Set these on the **croatoa-live** Vercel project (see [`.env.example`](./.env.example)):
+
+| Variable | Description |
+|----------|-------------|
+| `SPOTIFY_CLIENT_ID` | From [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) |
+| `SPOTIFY_CLIENT_SECRET` | App client secret |
+| `SPOTIFY_REDIRECT_URI` | `https://croatoa.live/api/spotify/callback` (must be listed under **Redirect URIs** in the app) |
+
+For local dev, add `http://127.0.0.1:3000/api/spotify/callback` (or your dev URL) to the same Redirect URIs list.
+
+API routes: `/api/spotify/login`, `/api/spotify/callback`, `/api/spotify/token`, `/api/spotify/tracks`.
 
 ---
 

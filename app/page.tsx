@@ -82,7 +82,7 @@ export default function HomePage() {
             id="player"
             aria-labelledby="player-heading"
           >
-            <h2 id="player-heading">Now playing — Spotify embed</h2>
+            <h2 id="player-heading">Now playing</h2>
             <SpotifyEmbedHost />
           </section>
 
