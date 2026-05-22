@@ -89,10 +89,6 @@ export function SpotifyPlayerProvider({ children }: { children: ReactNode }) {
 
   const playFromNeedle = useCallback(() => {
     if (!controller) return;
-    document.getElementById("player")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
     try {
       controller.resume();
     } catch {
