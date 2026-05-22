@@ -9,7 +9,7 @@ This document covers deploying the standalone site in [`sites/croatoa-live`](./)
 3. **Framework preset:** **Next.js** (auto-detected).
 4. **Root Directory:** `sites/croatoa-live`  
    (Critical: do **not** use `.` — that builds the presave app at the repo root instead.)
-5. **Build Command:** `npm run build` (default).
+5. **Build Command:** `next build --webpack` (see [`vercel.json`](./vercel.json); avoids a Turbopack `path` error during Vercel’s config merge on this project).
 6. **Output:** Next default (`.next`).
 7. **Install Command:** `npm install` (default).
 8. Deploy once on a Vercel preview URL and verify the homepage, Spotify embed, and Bandsintown block.
