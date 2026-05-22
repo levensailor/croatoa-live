@@ -562,7 +562,7 @@ body::after {
   }
 }
 
-/* Turntable control — fixed 5rem square (same footprint as former button cell) */
+/* Turntable control — fixed 5rem square; pizza GIF scaled inside */
 .drop-needle {
   --drop-needle-size: var(--hero-action-row-height);
   position: relative;
@@ -572,23 +572,22 @@ body::after {
   width: var(--drop-needle-size);
   height: var(--drop-needle-size);
   padding: 0;
-  border: 3px solid var(--p3);
-  background: color-mix(in srgb, var(--p5) 92%, black);
-  box-shadow: 4px 4px 0 var(--p4);
+  border: none;
+  background: transparent;
+  box-shadow: none;
   cursor: pointer;
   overflow: hidden;
   appearance: none;
   -webkit-tap-highlight-color: transparent;
-  transition: box-shadow 0.1s ease;
+  transition: transform 0.1s ease;
 }
 
 button.drop-needle:hover {
-  box-shadow: 5px 5px 0 var(--p4);
+  transform: scale(1.04);
 }
 
 button.drop-needle:active {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--p4);
+  transform: scale(0.98);
 }
 
 button.drop-needle:focus-visible {
@@ -596,128 +595,29 @@ button.drop-needle:focus-visible {
   outline-offset: 2px;
 }
 
-.drop-needle--placeholder {
-  display: block;
-  border-style: dashed;
-  border-color: color-mix(in srgb, var(--s4) 45%, transparent);
-  background: color-mix(in srgb, var(--p5) 55%, black);
-  cursor: default;
-  box-shadow: none;
-}
-
-.drop-needle__platter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 72%;
-  height: 72%;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    color-mix(in srgb, var(--s3) 35%, var(--p5)) 0%,
-    var(--p5) 68%
-  );
-  box-shadow:
-    inset 0 0 0 2px color-mix(in srgb, var(--s4) 55%, transparent),
-    0 1px 2px rgb(0 0 0 / 35%);
-}
-
-.drop-needle__disc {
-  position: relative;
-  display: block;
-  width: 88%;
-  height: 88%;
-  border-radius: 50%;
-  background:
-    conic-gradient(
-      from 0deg,
-      color-mix(in srgb, var(--s1) 55%, transparent) 0deg 14deg,
-      transparent 14deg 48deg,
-      color-mix(in srgb, var(--t2) 35%, transparent) 48deg 62deg,
-      transparent 62deg 360deg
-    ),
-    repeating-radial-gradient(
-      circle at 50% 50%,
-      var(--p5) 0 1px,
-      color-mix(in srgb, var(--p5) 70%, black) 1px 3px
-    ),
-    radial-gradient(circle at 50% 50%, var(--t5) 0%, var(--p5) 72%);
-  box-shadow: inset 0 0 6px rgb(0 0 0 / 45%);
-  transform: rotate(0deg);
-  will-change: transform;
-}
-
-.drop-needle--playing .drop-needle__disc {
-  animation: drop-needle-spin 1.35s linear infinite;
-}
-
-@keyframes drop-needle-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.drop-needle__label {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 28%;
-  height: 28%;
-  margin: -14% 0 0 -14%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, var(--s2), var(--s4));
-  box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, var(--s1) 40%, transparent),
-    0 0 0 1px rgb(0 0 0 / 25%);
-}
-
-/* Strobe notch — makes rotation obvious at a glance */
-.drop-needle__disc::after {
-  content: "";
-  position: absolute;
-  top: 6%;
-  left: 50%;
-  width: 4px;
-  height: 20%;
-  margin-left: -2px;
-  border-radius: 2px;
-  background: linear-gradient(180deg, var(--s1), var(--p2));
-  box-shadow: 0 0 4px color-mix(in srgb, var(--s1) 65%, transparent);
-}
-
-.drop-needle__arm {
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  width: 52%;
-  height: 52%;
-  pointer-events: none;
-  transform: rotate(-32deg);
-  transform-origin: 82% 12%;
-  transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.48, 1);
-}
-
-.drop-needle--dropped .drop-needle__arm {
-  transform: rotate(6deg);
-}
-
-.drop-needle__arm-svg {
+.drop-needle__visual {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .drop-needle--playing .drop-needle__disc {
-    animation: none;
-  }
+.drop-needle__visual--muted {
+  opacity: 0.35;
+  filter: grayscale(0.35);
+}
 
-  .drop-needle__arm {
-    transition: none;
-  }
+.drop-needle--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: default;
+  box-shadow: none;
 }
 
 .hero-actions__streams {
