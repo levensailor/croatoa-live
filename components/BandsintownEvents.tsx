@@ -3,7 +3,7 @@
 import { useEffect, useId, type RefObject } from "react";
 import {
   artistDisplayName,
-  bandsintownPublicFallbackUrl,
+  bandsintownArtistUrl,
 } from "@/lib/site-config";
 
 type BandsintownEventsProps = {
@@ -46,7 +46,7 @@ export function BandsintownEvents({ shellRef }: BandsintownEventsProps) {
         data-display-past-dates="false"
         data-display-track="true"
         data-language="en"
-        href={bandsintownPublicFallbackUrl}
+        href={bandsintownArtistUrl}
         rel="noopener noreferrer"
         target="_blank"
       >

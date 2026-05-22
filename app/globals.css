@@ -857,8 +857,20 @@ section.panel h2 {
   color: #25d1da;
 }
 
-.stream-logo--youtube {
+.stream-logo--bandcamp {
+  color: #629aa9;
+}
+
+.stream-logo--youtube-music {
   color: #ff0033;
+}
+
+.stream-logo--youtube {
+  color: #ff0000;
+}
+
+.stream-logo--bandsintown {
+  color: #00cec8;
 }
 
 .stream-logo--instagram {

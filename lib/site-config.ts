@@ -45,12 +45,22 @@ export const amazonMusicArtistUrl =
 export const youtubeMusicArtistUrl =
   "https://music.youtube.com/channel/UCNAtQBgoQ2g35kEFf44mAgA?si=mQl4HivC1sL7wcOP";
 
+export const youtubeChannelUrl =
+  "https://www.youtube.com/channel/UCCr09RLQlXEIneiFU9m13hA";
+
+export const bandcampAlbumUrl =
+  "https://croatoa.bandcamp.com/album/start-a-fire";
+
 export const instagramUrl = "https://instagram.com/croatoanc";
 
 export const instagramHandle = "croatoanc";
 
-/** Public Bandsintown destination for widget fallback links (not artist dashboard). */
-export const bandsintownPublicFallbackUrl = "https://www.bandsintown.com/";
+/** Public Bandsintown artist page (widget fallback + social link). */
+export const bandsintownArtistUrl =
+  "https://www.bandsintown.com/a/2609891-croatoa";
+
+/** @deprecated Use {@link bandsintownArtistUrl}. */
+export const bandsintownPublicFallbackUrl = bandsintownArtistUrl;
 
 /** Bandsintown artist dashboard numeric id (for docs / manager tools). */
 export const bandsintownArtistDashboardId = "2609891";

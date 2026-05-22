@@ -2,9 +2,12 @@ import type { ReactNode } from "react";
 import {
   amazonMusicArtistUrl,
   appleMusicArtistUrl,
+  bandcampAlbumUrl,
+  bandsintownArtistUrl,
   instagramUrl,
   spotifyArtistUrl,
   tidalArtistUrl,
+  youtubeChannelUrl,
   youtubeMusicArtistUrl,
 } from "@/lib/site-config";
 
@@ -55,12 +58,45 @@ function AmazonMusicIcon() {
   );
 }
 
+function BandcampIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width={28} height={28} aria-hidden>
+      <path
+        fill="currentColor"
+        d="M0 18.75h7.5V5.25H0v13.5zm10.5 0h7.5V0h-7.5v18.75z"
+      />
+    </svg>
+  );
+}
+
 function YoutubeMusicIcon() {
   return (
     <svg viewBox="0 0 24 24" width={28} height={28} aria-hidden>
       <path
         fill="currentColor"
         d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.568 12.18l-6.3 3.64c-.504.292-1.14-.073-1.14-.648V8.828c0-.575.636-.94 1.14-.648l6.3 3.64c.504.292.504 1.004 0 1.296z"
+      />
+    </svg>
+  );
+}
+
+function YoutubeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width={28} height={28} aria-hidden>
+      <path
+        fill="currentColor"
+        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+      />
+    </svg>
+  );
+}
+
+function BandsintownIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width={28} height={28} aria-hidden>
+      <path
+        fill="currentColor"
+        d="M18.775 0H5.225C2.338 0 0 2.338 0 5.225v13.55C0 21.662 2.338 24 5.225 24h13.55C21.662 24 24 21.662 24 18.775V5.225C24 2.338 21.662 0 18.775 0zM12 20.065c-4.436 0-8.065-3.629-8.065-8.065S7.564 3.935 12 3.935s8.065 3.629 8.065 8.065-3.629 8.065-8.065 8.065z"
       />
     </svg>
   );
@@ -82,7 +118,10 @@ const services: ServiceLink[] = [
   { name: "Apple Music", href: appleMusicArtistUrl, icon: <AppleMusicIcon /> },
   { name: "Tidal", href: tidalArtistUrl, icon: <TidalIcon /> },
   { name: "Amazon Music", href: amazonMusicArtistUrl, icon: <AmazonMusicIcon /> },
+  { name: "Bandcamp", href: bandcampAlbumUrl, icon: <BandcampIcon /> },
   { name: "YouTube Music", href: youtubeMusicArtistUrl, icon: <YoutubeMusicIcon /> },
+  { name: "YouTube", href: youtubeChannelUrl, icon: <YoutubeIcon /> },
+  { name: "Bandsintown", href: bandsintownArtistUrl, icon: <BandsintownIcon /> },
   { name: "Instagram", href: instagramUrl, icon: <InstagramIcon /> },
 ];
 
@@ -91,7 +130,10 @@ const brandClass: Record<string, string> = {
   "Apple Music": "stream-logo--apple",
   Tidal: "stream-logo--tidal",
   "Amazon Music": "stream-logo--amazon",
-  "YouTube Music": "stream-logo--youtube",
+  Bandcamp: "stream-logo--bandcamp",
+  "YouTube Music": "stream-logo--youtube-music",
+  YouTube: "stream-logo--youtube",
+  Bandsintown: "stream-logo--bandsintown",
   Instagram: "stream-logo--instagram",
 };
 
