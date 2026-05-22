@@ -13,9 +13,11 @@ import {
   normalizePlaybackUpdate,
   type SpotifyEmbedController,
 } from "@/components/spotify/embed-controller";
-import { spotifyArtistUri, spotifyEmbedTheme } from "@/lib/site-config";
-
-const EMBED_HEIGHT_PX = 380;
+import {
+  spotifyArtistUri,
+  spotifyEmbedHeightPx,
+  spotifyEmbedTheme,
+} from "@/lib/site-config";
 
 type SpotifyPlayerContextValue = {
   ready: boolean;
@@ -53,7 +55,7 @@ export function SpotifyPlayerProvider({ children }: { children: ReactNode }) {
         {
           uri: spotifyArtistUri,
           width: "100%",
-          height: String(EMBED_HEIGHT_PX),
+          height: String(spotifyEmbedHeightPx),
           theme: spotifyEmbedTheme,
         },
         (next) => {
@@ -117,7 +119,7 @@ export function SpotifyEmbedHost() {
     <div
       ref={ctx.setEmbedHost}
       className="player-wrap spotify-embed-host"
-      style={{ minHeight: EMBED_HEIGHT_PX }}
+      style={{ minHeight: spotifyEmbedHeightPx }}
     />
   );
 }

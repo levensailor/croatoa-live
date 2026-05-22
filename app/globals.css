@@ -842,12 +842,17 @@ section.panel h2 {
 }
 
 .player-panel {
+  --spotify-embed-height: 168px;
   border-color: var(--c4);
   background: linear-gradient(
     180deg,
     var(--p5) 0%,
     color-mix(in srgb, var(--p5) 70%, var(--t5)) 100%
   );
+}
+
+.player-panel h2 {
+  margin-bottom: 0.65rem;
 }
 
 .bio-panel {
@@ -861,16 +866,17 @@ section.panel h2 {
 
 .player-wrap {
   --spotify-embed-chrome: var(--p5);
-  border: 3px solid var(--s4);
-  padding: 0.35rem;
+  border: 2px solid var(--s4);
+  padding: 0.2rem;
   background: var(--spotify-embed-chrome);
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--p3) 25%, transparent);
 }
 
 .spotify-embed-host {
   width: 100%;
+  min-height: var(--spotify-embed-height, 168px);
   background: var(--spotify-embed-chrome);
   border-radius: 10px;
   overflow: hidden;
@@ -878,17 +884,13 @@ section.panel h2 {
 
 .spotify-embed-host iframe {
   width: 100%;
-  min-height: min(380px, 52vh);
+  height: var(--spotify-embed-height, 168px);
+  min-height: var(--spotify-embed-height, 168px);
+  max-height: var(--spotify-embed-height, 168px);
   border: 0;
   display: block;
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--spotify-embed-chrome);
-}
-
-@media (min-width: 821px) {
-  .listen-bio-row .spotify-embed-host iframe {
-    min-height: 340px;
-  }
 }
 
 /* Bandsintown shows — hidden while widget detects upcoming dates */
@@ -1024,8 +1026,63 @@ section.panel h2 {
   font-size: 1rem;
 }
 
-.bio-text p:last-child {
+.bio-text__more p {
+  margin: 0 0 1rem;
+}
+
+.bio-text__more p:last-child {
   margin-bottom: 0;
+}
+
+.bio-text > p:last-of-type:not(:only-child) {
+  margin-bottom: 0.75rem;
+}
+
+.bio-expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0.15rem auto 0;
+  padding: 0;
+  border: 3px solid var(--c4);
+  background: color-mix(in srgb, var(--p5) 88%, var(--t5));
+  box-shadow: 3px 3px 0 var(--s5);
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background 0.12s ease,
+    transform 0.1s ease;
+}
+
+.bio-expand:hover {
+  background: color-mix(in srgb, var(--c2) 35%, var(--p5));
+}
+
+.bio-expand:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--s5);
+}
+
+.bio-expand:focus-visible {
+  outline: 2px solid var(--c1);
+  outline-offset: 2px;
+}
+
+.bio-expand__arrow {
+  display: block;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-right: 3px solid var(--c1);
+  border-bottom: 3px solid var(--c1);
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform 0.2s ease;
+}
+
+.bio-expand[aria-expanded="true"] .bio-expand__arrow {
+  transform: rotate(225deg) translate(-2px, -2px);
 }
 
 /* booking */

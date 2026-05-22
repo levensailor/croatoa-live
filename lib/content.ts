@@ -28,12 +28,37 @@ function readDataFile(name: "bio.txt" | "tracklist.txt"): string | null {
   return null;
 }
 
-export function getBioParagraphs(): string[] {
-  const raw = readDataFile("bio.txt") ?? fallbackBio;
+function getBioRaw(): string {
+  return readDataFile("bio.txt") ?? fallbackBio;
+}
+
+function splitBioParagraphs(raw: string): string[] {
   return raw
     .split(/\n\s*\n/)
     .map((p) => p.replace(/\n/g, " ").trim())
     .filter(Boolean);
+}
+
+export function getBioParagraphs(): string[] {
+  return splitBioParagraphs(getBioRaw());
+}
+
+/** Visible bio ends at this phrase; remainder toggles via expand control. */
+export const bioTeaserEndMarker = "mumbling.";
+
+export function getBioTeaserAndRest(): { teaser: string[]; rest: string[] } {
+  const raw = getBioRaw();
+  const idx = raw.indexOf(bioTeaserEndMarker);
+  if (idx === -1) {
+    const paragraphs = splitBioParagraphs(raw);
+    return { teaser: paragraphs, rest: [] };
+  }
+  const teaserRaw = raw.slice(0, idx + bioTeaserEndMarker.length).trim();
+  const restRaw = raw.slice(idx + bioTeaserEndMarker.length).trim();
+  return {
+    teaser: splitBioParagraphs(teaserRaw),
+    rest: restRaw ? splitBioParagraphs(restRaw) : [],
+  };
 }
 
 export function getTrackTitles(): string[] {

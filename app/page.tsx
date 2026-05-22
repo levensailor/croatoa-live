@@ -8,7 +8,8 @@ import {
   SpotifyEmbedHost,
   SpotifyPlayerProvider,
 } from "@/components/SpotifyPlayerProvider";
-import { getBioParagraphs } from "@/lib/content";
+import { BioExpandable } from "@/components/BioExpandable";
+import { getBioTeaserAndRest } from "@/lib/content";
 import {
   artistDisplayName,
   artistTagline,
@@ -18,7 +19,7 @@ import {
 } from "@/lib/site-config";
 
 export default function HomePage() {
-  const bioParagraphs = getBioParagraphs();
+  const { teaser: bioTeaser, rest: bioRest } = getBioTeaserAndRest();
 
   return (
     <div className="shell">
@@ -87,11 +88,7 @@ export default function HomePage() {
 
           <section className="panel bio-panel" id="bio" aria-labelledby="bio-heading">
             <h2 id="bio-heading">Bio</h2>
-            <div className="bio-text">
-              {bioParagraphs.map((paragraph, index) => (
-                <p key={`bio-${index}`}>{paragraph}</p>
-              ))}
-            </div>
+            <BioExpandable teaser={bioTeaser} rest={bioRest} />
           </section>
         </div>
 

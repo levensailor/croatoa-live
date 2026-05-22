@@ -56,3 +56,6 @@ export const spotifyEmbedSrc = `https://open.spotify.com/embed/artist/${spotifyA
 /** Spotify iFrame API theme — only `dark` is supported (maps to `theme=0` on the embed URL). */
 export const spotifyEmbedTheme = "dark" as const;
 
+/** Compact artist embed height (px) for the homepage player panel. */
+export const spotifyEmbedHeightPx = 168;
+
