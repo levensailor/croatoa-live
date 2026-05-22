@@ -60,4 +60,19 @@ export const bandsintownArtistToolsUrl =
 export const bandsintownArtistHomeUrl =
   "https://artists.bandsintown.com/artists/2609891";
 
-export const heroImageFilename = "croatoa-bill-notext.jpg";
+/** Hero TV slideshow — add `{ filename, alt }` entries to include more photos. */
+export type HeroSlide = { filename: string; alt: string };
+
+export const heroSlideshowSlides: readonly HeroSlide[] = [
+  {
+    filename: "croatoa-bill-notext.jpg",
+    alt: "CROATOA — Jeff, Jay, and Colin performing live, Wilmington NC rock",
+  },
+  {
+    filename: "croatoa-dramtree.jpg",
+    alt: "CROATOA live at Dram Tree Tavern",
+  },
+] as const;
+
+/** First slide — Open Graph / metadata. */
+export const heroImageFilename = heroSlideshowSlides[0].filename;

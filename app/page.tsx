@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { BandsintownShowsSection } from "@/components/BandsintownShowsSection";
+import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { ShowsNavLink } from "@/components/ShowsNavLink";
 import { DropNeedleButton } from "@/components/DropNeedleButton";
 import { SleepingDog } from "@/components/SleepingDog";
@@ -13,7 +13,7 @@ import {
   artistTagline,
   bookingEmail,
   cityRegion,
-  heroImageFilename,
+  heroSlideshowSlides,
 } from "@/lib/site-config";
 
 export default function HomePage() {
@@ -46,13 +46,9 @@ export default function HomePage() {
               VIDEO / 1
             </span>
             <div className="tv-screen">
-              <Image
-                src={`/${heroImageFilename}`}
-                alt={`${artistDisplayName} — main band photo, Wilmington NC rock`}
-                fill
+              <HeroSlideshow
+                slides={heroSlideshowSlides}
                 sizes="(max-width: 880px) 100vw, 55vw"
-                priority
-                fetchPriority="high"
               />
               <div className="tv-glare" aria-hidden="true" />
             </div>
