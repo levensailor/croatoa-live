@@ -5,8 +5,8 @@
 
 export const productionSiteUrl = "https://croatoa.live";
 
-/** Decorative dreamcatcher — hangs from the site banner over the hero TV. */
-export const dreamcatcherGifPath = "/dreamcatcher.gif";
+/** Clooney peek GIF — rises along the top edge of the bio panel. */
+export const clooneyPeekGifPath = "/george-clooney-snooping.gif";
 
 export const artistDisplayName = "CROATOA";
 

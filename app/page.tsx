@@ -3,7 +3,7 @@ import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { ShowsNavLink } from "@/components/ShowsNavLink";
 import { DropNeedleButton } from "@/components/DropNeedleButton";
 import { BioPeekGif } from "@/components/BioPeekGif";
-import { DreamcatcherHang } from "@/components/DreamcatcherHang";
+import { SleepingDog } from "@/components/SleepingDog";
 import { StreamingLogos } from "@/components/StreamingLogos";
 import { SpotifyEmbedHost } from "@/components/SpotifyEmbedHost";
 import { SpotifyPlayerProvider } from "@/components/SpotifyPlayerProvider";
@@ -22,25 +22,22 @@ export default function HomePage() {
 
   return (
     <div className="shell">
-      <div className="site-banner">
-        <div className="top-rgb" aria-hidden="true" />
-        <header className="site-header">
-          <div className="logo-lockup">
-            <strong>{artistDisplayName}</strong>
-            <span>
-              {cityRegion} · channel 00 · stereo crush
-            </span>
-          </div>
-          <nav className="nav-chips" aria-label="Page sections">
-            <a href="#listen">Listen</a>
-            <a href="#player">Play</a>
-            <ShowsNavLink />
-            <a href="#bio">Bio</a>
-            <a href="#book">Book</a>
-          </nav>
-        </header>
-        <DreamcatcherHang />
-      </div>
+      <div className="top-rgb" aria-hidden="true" />
+      <header className="site-header">
+        <div className="logo-lockup">
+          <strong>{artistDisplayName}</strong>
+          <span>
+            {cityRegion} · channel 00 · stereo crush
+          </span>
+        </div>
+        <nav className="nav-chips" aria-label="Page sections">
+          <a href="#listen">Listen</a>
+          <a href="#player">Play</a>
+          <ShowsNavLink />
+          <a href="#bio">Bio</a>
+          <a href="#book">Book</a>
+        </nav>
+      </header>
 
       <SpotifyPlayerProvider>
       <main id="main">
@@ -74,15 +71,18 @@ export default function HomePage() {
           </div>
 
           <div className="listen-bio-column">
-            <BioPeekGif />
-            <section
-              className="panel bio-panel"
-              id="bio"
-              aria-labelledby="bio-heading"
-            >
-              <h2 id="bio-heading">Bio</h2>
-              <BioExpandable teaser={bioTeaser} rest={bioRest} />
-            </section>
+            <SleepingDog />
+            <div className="bio-with-peek">
+              <BioPeekGif />
+              <section
+                className="panel bio-panel"
+                id="bio"
+                aria-labelledby="bio-heading"
+              >
+                <h2 id="bio-heading">Bio</h2>
+                <BioExpandable teaser={bioTeaser} rest={bioRest} />
+              </section>
+            </div>
           </div>
 
           <div

@@ -1,16 +1,20 @@
-/** Decorative peek GIF above the bio — scales with the listen/bio column. */
+import { clooneyPeekGifPath } from "@/lib/site-config";
+
+/** Clooney peeks over the bio panel top border — slides up, lingers, slides back down. */
 export function BioPeekGif() {
   return (
     <div className="bio-peek" aria-hidden="true">
-      <img
-        src="/george-clooney-snooping.gif"
-        alt=""
-        className="bio-peek__gif"
-        width={480}
-        height={207}
-        loading="lazy"
-        decoding="async"
-      />
+      <div className="bio-peek__inner">
+        <img
+          src={clooneyPeekGifPath}
+          alt=""
+          className="bio-peek__gif"
+          width={480}
+          height={207}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
     </div>
   );
 }
