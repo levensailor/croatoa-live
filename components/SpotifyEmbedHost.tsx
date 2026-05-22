@@ -1,12 +1,12 @@
 "use client";
 
 import { useSpotifyPlayer } from "@/components/SpotifyPlayerProvider";
-import {
-  spotifyEmbedHeightPx,
-  spotifyEmbedSrc,
-} from "@/lib/site-config";
+import { spotifyEmbedHeightPx } from "@/lib/site-config";
 
-/** Spotify track embed — generator iframe for Clap Back. */
+/**
+ * Spotify track embed via iFrame API — same Clap Back track as the generator
+ * iframe; exposes playback events for the turntable sync.
+ */
 export function SpotifyEmbedHost() {
   const player = useSpotifyPlayer();
   if (!player) {
@@ -14,21 +14,10 @@ export function SpotifyEmbedHost() {
   }
 
   return (
-    <div className="player-wrap spotify-embed-host">
-      <iframe
-        data-testid="embed-iframe"
-        title="Spotify track player"
-        src={spotifyEmbedSrc}
-        width="100%"
-        height={spotifyEmbedHeightPx}
-        style={{ borderRadius: 12 }}
-        frameBorder={0}
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        allowFullScreen
-        loading="lazy"
-        className="spotify-embed-iframe"
-        onLoad={player.markEmbedReady}
-      />
-    </div>
+    <div
+      ref={player.setEmbedHost}
+      className="player-wrap spotify-embed-host"
+      style={{ minHeight: spotifyEmbedHeightPx }}
+    />
   );
 }
