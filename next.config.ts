@@ -6,15 +6,6 @@ const projectDir = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "i.scdn.co",
-        pathname: "/image/**",
-      },
-    ],
-  },
   turbopack: {
     root: projectDir,
   },

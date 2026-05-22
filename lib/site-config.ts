@@ -21,6 +21,18 @@ export const spotifyArtistUri = `spotify:artist:${spotifyArtistId}`;
 export const spotifyArtistUrl =
   "https://open.spotify.com/artist/1dzdmLN2CPvHGvl9vu4EpX?si=eQCxva2ESH607_ceLqXa0g";
 
+/** Featured track embed (Clap Back) — generator iframe URL and iFrame API URI. */
+export const spotifyEmbedTrackId = "7jdM8H1Rx0LgHlqF5ezmCx";
+
+export const spotifyEmbedTrackUri = `spotify:track:${spotifyEmbedTrackId}`;
+
+export const spotifyEmbedSrc = `https://open.spotify.com/embed/track/${spotifyEmbedTrackId}?utm_source=generator`;
+
+export const spotifyEmbedHeightPx = 352;
+
+/** Spotify iFrame API theme — only `dark` is supported (maps to `theme=0` on the embed URL). */
+export const spotifyEmbedTheme = "dark" as const;
+
 export const appleMusicArtistUrl =
   "https://music.apple.com/us/artist/croatoa/1752338632";
 
@@ -49,7 +61,3 @@ export const bandsintownArtistHomeUrl =
   "https://artists.bandsintown.com/artists/2609891";
 
 export const heroImageFilename = "croatoa-bill-notext.jpg";
-
-/** Minimum height (px) for the Web Playback SDK player — fits now-playing + 8-track queue. */
-export const spotifyPlayerMinHeightPx = 512;
-

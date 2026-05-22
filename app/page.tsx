@@ -4,10 +4,8 @@ import { ShowsNavLink } from "@/components/ShowsNavLink";
 import { DropNeedleButton } from "@/components/DropNeedleButton";
 import { SleepingDog } from "@/components/SleepingDog";
 import { StreamingLogos } from "@/components/StreamingLogos";
-import {
-  SpotifyEmbedHost,
-  SpotifyPlayerProvider,
-} from "@/components/SpotifyPlayerProvider";
+import { SpotifyEmbedHost } from "@/components/SpotifyEmbedHost";
+import { SpotifyPlayerProvider } from "@/components/SpotifyPlayerProvider";
 import { BioExpandable } from "@/components/BioExpandable";
 import { getBioTeaserAndRest } from "@/lib/content";
 import {

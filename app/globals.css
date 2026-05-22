@@ -842,7 +842,7 @@ section.panel h2 {
 }
 
 .player-panel {
-  --web-player-height: 32rem;
+  --spotify-embed-height: 352px;
   border-color: var(--c4);
   background: linear-gradient(
     180deg,
@@ -865,229 +865,30 @@ section.panel h2 {
 }
 
 .player-wrap {
-  --spotify-player-chrome: var(--p5);
+  --spotify-embed-chrome: var(--p5);
   border: 2px solid var(--s4);
-  padding: 0.35rem;
-  background: var(--spotify-player-chrome);
+  padding: 0.2rem;
+  background: var(--spotify-embed-chrome);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--p3) 25%, transparent);
 }
 
-/* Web Playback SDK player */
-.web-player {
-  display: flex;
-  flex-direction: column;
-  min-height: var(--web-player-height, 32rem);
-  gap: 0.5rem;
-  color: var(--s1);
-}
-
-.web-player__gate {
-  padding: 0.5rem 0.35rem 0.25rem;
-  text-align: center;
-}
-
-.web-player__gate-lede {
-  margin: 0 0 0.75rem;
-  font-size: 0.92rem;
-  line-height: 1.4;
-  color: color-mix(in srgb, var(--s2) 90%, var(--p1));
-}
-
-.web-player__login {
-  display: inline-block;
-  text-decoration: none;
-}
-
-.web-player__hint {
-  margin: 0.5rem 0 0;
-  font-size: 0.82rem;
-  color: var(--s4);
-}
-
-.web-player__hint--error {
-  color: var(--c1);
-}
-
-.web-player__banner {
-  margin: 0;
-  padding: 0.45rem 0.55rem;
-  font-size: 0.82rem;
-  border: 2px solid var(--t3);
-  background: color-mix(in srgb, var(--t5) 55%, black);
-}
-
-.web-player__banner--error {
-  border-color: var(--c4);
-  color: var(--c1);
-}
-
-.web-player__now {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 0.55rem;
-  align-items: center;
-  padding: 0.45rem;
-  border: 2px solid var(--s3);
-  background: color-mix(in srgb, var(--p5) 75%, black);
-  box-shadow: 3px 3px 0 var(--s5);
-}
-
-.web-player__cover {
-  display: block;
-  width: 3.5rem;
-  height: 3.5rem;
-  object-fit: cover;
-  border: 2px solid var(--s4);
-  image-rendering: auto;
-}
-
-.web-player__cover--empty {
-  background: linear-gradient(135deg, var(--t5), var(--p4));
-}
-
-.web-player__title {
-  margin: 0;
-  font-family: var(--font-pixel);
-  font-size: 0.58rem;
-  line-height: 1.45;
-  color: var(--c1);
-}
-
-.web-player__artist {
-  margin: 0.2rem 0 0;
-  font-size: 0.82rem;
-  color: var(--s2);
-}
-
-.web-player__transport {
-  display: flex;
-  gap: 0.25rem;
-  align-items: center;
-}
-
-.web-player__btn {
-  min-width: 2rem;
-  height: 2rem;
-  padding: 0 0.35rem;
-  border: 2px solid var(--s4);
-  background: var(--p4);
-  color: var(--s1);
-  font-family: var(--font-pixel);
-  font-size: 0.55rem;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 2px 2px 0 var(--s5);
-}
-
-.web-player__btn:hover:not(:disabled) {
-  background: color-mix(in srgb, var(--c2) 25%, var(--p4));
-}
-
-.web-player__btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
-.web-player__btn--play {
-  min-width: 2.35rem;
-  border-color: var(--c4);
-  color: var(--c1);
-}
-
-.web-player__queue {
-  flex: 1;
-  display: grid;
-  grid-template-rows: repeat(8, minmax(2.35rem, 1fr));
-  gap: 2px;
-  min-height: 18.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  overflow: hidden;
-}
-
-.web-player__queue-empty {
-  grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
-  color: var(--s4);
-}
-
-.web-player__track {
-  display: grid;
-  grid-template-columns: 1.6rem 1fr auto;
-  gap: 0.35rem;
-  align-items: center;
+.spotify-embed-host {
   width: 100%;
-  height: 100%;
-  padding: 0.2rem 0.4rem;
-  border: 2px solid transparent;
-  background: color-mix(in srgb, var(--p5) 88%, black);
-  color: inherit;
-  text-align: left;
-  cursor: pointer;
-  font: inherit;
+  min-height: var(--spotify-embed-height, 352px);
+  background: var(--spotify-embed-chrome);
+  border-radius: 10px;
 }
 
-.web-player__track:hover:not(:disabled) {
-  border-color: color-mix(in srgb, var(--s4) 45%, transparent);
-  background: color-mix(in srgb, var(--t5) 35%, var(--p5));
-}
-
-.web-player__track--active {
-  border-color: var(--c4);
-  background: color-mix(in srgb, var(--c2) 18%, var(--p5));
-}
-
-.web-player__track:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
-.web-player__track-num {
-  font-family: var(--font-pixel);
-  font-size: 0.5rem;
-  color: var(--s4);
-  text-align: center;
-}
-
-.web-player__track-main {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-}
-
-.web-player__track-name {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--s1);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.web-player__track-artist {
-  font-size: 0.72rem;
-  color: var(--s4);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.web-player__track-time {
-  font-size: 0.7rem;
-  color: var(--s4);
-  font-variant-numeric: tabular-nums;
-}
-
-a.drop-needle--login {
-  text-decoration: none;
-  color: inherit;
+.spotify-embed-iframe {
+  display: block;
+  width: 100%;
+  height: var(--spotify-embed-height, 352px);
+  min-height: var(--spotify-embed-height, 352px);
+  border: 0;
+  border-radius: 12px;
+  background: var(--spotify-embed-chrome);
 }
 
 /* Bandsintown shows — hidden while widget detects upcoming dates */
