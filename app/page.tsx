@@ -2,7 +2,7 @@ import { BandsintownShowsSection } from "@/components/BandsintownShowsSection";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { ShowsNavLink } from "@/components/ShowsNavLink";
 import { DropNeedleButton } from "@/components/DropNeedleButton";
-import { SleepingDog } from "@/components/SleepingDog";
+import { BioPeekGif } from "@/components/BioPeekGif";
 import { StreamingLogos } from "@/components/StreamingLogos";
 import { SpotifyEmbedHost } from "@/components/SpotifyEmbedHost";
 import { SpotifyPlayerProvider } from "@/components/SpotifyPlayerProvider";
@@ -40,7 +40,7 @@ export default function HomePage() {
 
       <SpotifyPlayerProvider>
       <main id="main">
-        <section className="hero" aria-labelledby="hero-heading">
+        <section className="hero-listen" aria-labelledby="hero-heading">
           <div className="tv-frame">
             <span className="tv-bezel-label" aria-hidden="true">
               VIDEO / 1
@@ -53,6 +53,7 @@ export default function HomePage() {
               <div className="tv-glare" aria-hidden="true" />
             </div>
           </div>
+
           <div className="hero-side">
             <div className="hero-card">
               <h1 id="hero-heading">{artistDisplayName}</h1>
@@ -64,25 +65,30 @@ export default function HomePage() {
                   </div>
                   <StreamingLogos />
                 </div>
-                <div
-                  className="hero-player"
-                  id="player"
-                  aria-label="Spotify player"
-                >
-                  <SpotifyEmbedHost />
-                </div>
               </div>
             </div>
           </div>
-        </section>
 
-        <div className="listen-bio-row">
-          <SleepingDog />
-          <section className="panel bio-panel" id="bio" aria-labelledby="bio-heading">
-            <h2 id="bio-heading">Bio</h2>
-            <BioExpandable teaser={bioTeaser} rest={bioRest} />
-          </section>
-        </div>
+          <div className="listen-bio-column">
+            <BioPeekGif />
+            <section
+              className="panel bio-panel"
+              id="bio"
+              aria-labelledby="bio-heading"
+            >
+              <h2 id="bio-heading">Bio</h2>
+              <BioExpandable teaser={bioTeaser} rest={bioRest} />
+            </section>
+          </div>
+
+          <div
+            className="hero-player-slot hero-player"
+            id="player"
+            aria-label="Spotify player"
+          >
+            <SpotifyEmbedHost />
+          </div>
+        </section>
 
         <BandsintownShowsSection />
 
