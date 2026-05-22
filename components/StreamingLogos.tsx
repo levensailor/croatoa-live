@@ -97,7 +97,7 @@ const brandClass: Record<string, string> = {
 
 export function StreamingLogos() {
   return (
-    <nav id="listen" className="stream-logos" aria-label="Stream everywhere">
+    <nav className="stream-logos" aria-label="Stream everywhere">
       <ul className="stream-logos-list">
         {services.map((service) => (
           <li key={service.name}>

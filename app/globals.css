@@ -403,22 +403,15 @@ body::after {
   padding-left: 0.75rem;
 }
 
-.hero-actions {
+/* Hero CTA — full card width (matches lede / tagline) */
+.hero-cta-stack {
   --hero-action-row-height: 5rem;
-  display: grid;
-  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
-  gap: 0.5rem;
-  align-items: start;
-  margin-bottom: 0;
-}
-
-.hero-actions__primary {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 0.5rem;
-  min-width: 0;
-  max-width: 100%;
+  gap: 0.55rem;
+  width: 100%;
+  margin-bottom: 0;
 }
 
 .hero-actions__cell {
@@ -432,12 +425,49 @@ body::after {
 .hero-player {
   --spotify-embed-height: 152px;
   width: 100%;
-  min-width: min(100%, 20rem);
+  max-width: 100%;
+}
+
+.hero-player .player-wrap,
+.hero-player .spotify-embed-host {
+  width: 100%;
+  max-width: 100%;
 }
 
 .hero-player .player-wrap {
   border-color: color-mix(in srgb, var(--c4) 55%, var(--s4));
   padding: 0.15rem;
+  box-sizing: border-box;
+}
+
+.hero-cta-stack .stream-logos {
+  width: 100%;
+  margin: 0.15rem 0 0;
+}
+
+.hero-cta-stack .stream-logos-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem 0.7rem;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.hero-cta-stack .stream-logos-list li {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 420px) {
+  .hero-cta-stack .stream-logos-list {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
 }
 
 /* Duck Hunt hound — patrol above bio (under hero CTA column) */
@@ -640,24 +670,6 @@ button.drop-needle:focus-visible {
   box-shadow: none;
 }
 
-.hero-actions__streams {
-  display: flex;
-  align-items: center;
-  min-width: 0;
-  min-height: var(--hero-action-row-height);
-}
-
-.hero-actions__streams .stream-logos {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-
-.hero-actions__streams .stream-logos-list {
-  flex-wrap: wrap;
-  gap: 0.45rem 0.6rem;
-}
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -842,34 +854,19 @@ section.panel h2 {
   color: #e4405f;
 }
 
-/* Bio column — aligns under hero CTA on wide viewports; hound sits above bio */
+/* Hound + full-width bio */
 .listen-bio-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
   margin-bottom: 2rem;
 }
 
-@media (min-width: 880px) {
-  .listen-bio-row {
-    grid-template-columns: 1.1fr 0.9fr;
-  }
-
-  .listen-bio-row__bio-stack {
-    grid-column: 2;
-  }
-}
-
-.listen-bio-row__bio-stack {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.listen-bio-row__bio-stack > .panel {
+.listen-bio-row > .panel {
+  width: 100%;
   margin-bottom: 0;
   min-width: 0;
-  flex: 1;
 }
 
 .bio-panel {
