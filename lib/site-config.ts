@@ -110,6 +110,34 @@ export const heroSlideshowSlides: readonly HeroSlide[] = [
     filename: "wilmington-07052.jpg",
     alt: "CROATOA in Wilmington, NC",
   },
+  {
+    filename: "20260521_215534839.jpg",
+    alt: "CROATOA live — Wilmington, North Carolina",
+  },
+  {
+    filename: "20260521_215835636.jpg",
+    alt: "CROATOA performing live",
+  },
+  {
+    filename: "20260521_220701632.jpg",
+    alt: "CROATOA on stage",
+  },
+  {
+    filename: "20260521_220752082.jpg",
+    alt: "CROATOA live show",
+  },
+  {
+    filename: "20260521_221220491.jpg",
+    alt: "CROATOA band live",
+  },
+  {
+    filename: "20260521_221940551.jpg",
+    alt: "CROATOA in Wilmington, NC",
+  },
+  {
+    filename: "20260522_121752237.jpg",
+    alt: "CROATOA live performance",
+  },
 ] as const;
 
 /** First slide — Open Graph / metadata. */
