@@ -414,6 +414,14 @@ body::after {
   margin-bottom: 0;
 }
 
+.hero-cta-top {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.5rem 0.65rem;
+  align-items: center;
+  width: 100%;
+}
+
 .hero-actions__cell {
   display: flex;
   flex: 0 0 auto;
@@ -440,33 +448,36 @@ body::after {
   box-sizing: border-box;
 }
 
-.hero-cta-stack .stream-logos {
+.hero-cta-top .stream-logos {
   width: 100%;
-  margin: 0.15rem 0 0;
+  margin: 0;
+  min-width: 0;
 }
 
-.hero-cta-stack .stream-logos-list {
+.hero-cta-top .stream-logos-list {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
-  gap: 0.5rem 0.7rem;
+  justify-content: flex-end;
+  gap: 0.45rem 0.6rem;
   width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+  margin: 0;
+  padding: 0;
 }
 
-.hero-cta-stack .stream-logos-list li {
+.hero-cta-top .stream-logos-list li {
   flex: 0 0 auto;
 }
 
-@media (max-width: 420px) {
-  .hero-cta-stack .stream-logos-list {
-    flex-wrap: wrap;
-    overflow-x: visible;
+@media (max-width: 520px) {
+  .hero-cta-top {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .hero-cta-top .stream-logos-list {
+    justify-content: flex-start;
   }
 }
 

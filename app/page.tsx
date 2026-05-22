@@ -58,8 +58,11 @@ export default function HomePage() {
               <h1 id="hero-heading">{artistDisplayName}</h1>
               <p className="lede">{artistTagline}</p>
               <div className="hero-cta-stack" id="listen">
-                <div className="hero-actions__cell">
-                  <DropNeedleButton />
+                <div className="hero-cta-top">
+                  <div className="hero-actions__cell">
+                    <DropNeedleButton />
+                  </div>
+                  <StreamingLogos />
                 </div>
                 <div
                   className="hero-player"
@@ -68,7 +71,6 @@ export default function HomePage() {
                 >
                   <SpotifyEmbedHost />
                 </div>
-                <StreamingLogos />
               </div>
             </div>
           </div>
