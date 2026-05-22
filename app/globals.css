@@ -645,11 +645,12 @@ body::after {
   transition: transform 0.1s ease;
 }
 
-button.drop-needle:hover {
+button.drop-needle--ready:hover,
+button.drop-needle--ready:focus-visible {
   transform: scale(1.04);
 }
 
-button.drop-needle:active {
+button.drop-needle--ready:active {
   transform: scale(0.98);
 }
 
@@ -666,6 +667,61 @@ button.drop-needle:focus-visible {
   object-position: center;
   pointer-events: none;
   user-select: none;
+  transform-origin: center center;
+}
+
+.drop-needle--hover-spin .drop-needle__visual--spin {
+  animation: drop-needle-spin 1.15s linear infinite;
+}
+
+.drop-needle__label {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem;
+  font-family: var(--font-pixel);
+  font-size: clamp(0.38rem, 2.2vw, 0.52rem);
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  text-align: center;
+  color: var(--p1);
+  text-shadow:
+    1px 1px 0 var(--t4),
+    2px 2px 0 var(--s5),
+    0 0 12px var(--c3);
+  background: color-mix(in srgb, var(--p5) 72%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+button.drop-needle--ready:hover .drop-needle__label,
+button.drop-needle--ready:focus-visible .drop-needle__label {
+  opacity: 1;
+}
+
+@keyframes drop-needle-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drop-needle__visual--spin {
+    animation: none;
+  }
+
+  button.drop-needle--ready:hover .drop-needle__label,
+  button.drop-needle--ready:focus-visible .drop-needle__label {
+    opacity: 1;
+  }
 }
 
 .drop-needle__visual--muted {
