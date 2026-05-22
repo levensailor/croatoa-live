@@ -2,5 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "installCommand": "npm install",
-  "buildCommand": "next build --webpack"
+  "buildCommand": "next build --webpack",
+  "build": {
+    "env": {
+      "VERCEL_PREVIEW_COMMENTS_ENABLED": "0"
+    }
+  }
 }
