@@ -86,6 +86,30 @@ export const heroSlideshowSlides: readonly HeroSlide[] = [
     filename: "croatoa-dramtree.jpg",
     alt: "CROATOA live at Dram Tree Tavern",
   },
+  {
+    filename: "20260522_121917961.jpg",
+    alt: "CROATOA live — Wilmington, North Carolina",
+  },
+  {
+    filename: "20260522_122556955.jpg",
+    alt: "CROATOA performing live",
+  },
+  {
+    filename: "20260522_122853260.jpg",
+    alt: "CROATOA on stage",
+  },
+  {
+    filename: "20260522_130624974.jpg",
+    alt: "CROATOA live show",
+  },
+  {
+    filename: "croatoa-20260522-131456917-2.jpg",
+    alt: "CROATOA band live",
+  },
+  {
+    filename: "wilmington-07052.jpg",
+    alt: "CROATOA in Wilmington, NC",
+  },
 ] as const;
 
 /** First slide — Open Graph / metadata. */
