@@ -3,6 +3,7 @@ import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { ShowsNavLink } from "@/components/ShowsNavLink";
 import { DropNeedleButton } from "@/components/DropNeedleButton";
 import { BioPeekGif } from "@/components/BioPeekGif";
+import { DreamcatcherHang } from "@/components/DreamcatcherHang";
 import { StreamingLogos } from "@/components/StreamingLogos";
 import { SpotifyEmbedHost } from "@/components/SpotifyEmbedHost";
 import { SpotifyPlayerProvider } from "@/components/SpotifyPlayerProvider";
@@ -21,22 +22,25 @@ export default function HomePage() {
 
   return (
     <div className="shell">
-      <div className="top-rgb" aria-hidden="true" />
-      <header className="site-header">
-        <div className="logo-lockup">
-          <strong>{artistDisplayName}</strong>
-          <span>
-            {cityRegion} · channel 00 · stereo crush
-          </span>
-        </div>
-        <nav className="nav-chips" aria-label="Page sections">
-          <a href="#listen">Listen</a>
-          <a href="#player">Play</a>
-          <ShowsNavLink />
-          <a href="#bio">Bio</a>
-          <a href="#book">Book</a>
-        </nav>
-      </header>
+      <div className="site-banner">
+        <div className="top-rgb" aria-hidden="true" />
+        <header className="site-header">
+          <div className="logo-lockup">
+            <strong>{artistDisplayName}</strong>
+            <span>
+              {cityRegion} · channel 00 · stereo crush
+            </span>
+          </div>
+          <nav className="nav-chips" aria-label="Page sections">
+            <a href="#listen">Listen</a>
+            <a href="#player">Play</a>
+            <ShowsNavLink />
+            <a href="#bio">Bio</a>
+            <a href="#book">Book</a>
+          </nav>
+        </header>
+        <DreamcatcherHang />
+      </div>
 
       <SpotifyPlayerProvider>
       <main id="main">

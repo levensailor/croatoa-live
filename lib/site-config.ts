@@ -5,6 +5,9 @@
 
 export const productionSiteUrl = "https://croatoa.live";
 
+/** Decorative dreamcatcher — hangs from the site banner over the hero TV. */
+export const dreamcatcherGifPath = "/dreamcatcher.gif";
+
 export const artistDisplayName = "CROATOA";
 
 export const artistTagline =
