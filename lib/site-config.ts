@@ -57,5 +57,5 @@ export const spotifyEmbedSrc = `https://open.spotify.com/embed/artist/${spotifyA
 export const spotifyEmbedTheme = "dark" as const;
 
 /** Compact artist embed height (px) for the homepage player panel. */
-export const spotifyEmbedHeightPx = 168;
+export const spotifyEmbedHeightPx = 336;
 
