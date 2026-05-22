@@ -58,32 +58,34 @@ export default function HomePage() {
               <h1 id="hero-heading">{artistDisplayName}</h1>
               <p className="lede">{artistTagline}</p>
               <div className="hero-actions">
-                <div className="hero-actions__cell">
-                  <DropNeedleButton />
+                <div className="hero-actions__primary" id="listen">
+                  <div className="hero-actions__cell">
+                    <DropNeedleButton />
+                  </div>
+                  <div
+                    className="hero-player"
+                    id="player"
+                    aria-label="Spotify player"
+                  >
+                    <SpotifyEmbedHost />
+                  </div>
                 </div>
                 <div className="hero-actions__streams">
                   <StreamingLogos />
                 </div>
               </div>
-              <SleepingDog />
             </div>
           </div>
         </section>
 
         <div className="listen-bio-row">
-          <section
-            className="panel player-panel"
-            id="player"
-            aria-labelledby="player-heading"
-          >
-            <h2 id="player-heading">Now playing</h2>
-            <SpotifyEmbedHost />
-          </section>
-
-          <section className="panel bio-panel" id="bio" aria-labelledby="bio-heading">
-            <h2 id="bio-heading">Bio</h2>
-            <BioExpandable teaser={bioTeaser} rest={bioRest} />
-          </section>
+          <div className="listen-bio-row__bio-stack">
+            <SleepingDog />
+            <section className="panel bio-panel" id="bio" aria-labelledby="bio-heading">
+              <h2 id="bio-heading">Bio</h2>
+              <BioExpandable teaser={bioTeaser} rest={bioRest} />
+            </section>
+          </div>
         </div>
 
         <BandsintownShowsSection />

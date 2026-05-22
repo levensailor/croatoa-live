@@ -28,7 +28,8 @@ export const spotifyEmbedTrackUri = `spotify:track:${spotifyEmbedTrackId}`;
 
 export const spotifyEmbedSrc = `https://open.spotify.com/embed/track/${spotifyEmbedTrackId}?utm_source=generator`;
 
-export const spotifyEmbedHeightPx = 352;
+/** Compact track embed height (Spotify generator compact player). */
+export const spotifyEmbedHeightPx = 152;
 
 /** Spotify iFrame API theme — only `dark` is supported (maps to `theme=0` on the embed URL). */
 export const spotifyEmbedTheme = "dark" as const;

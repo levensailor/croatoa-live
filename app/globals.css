@@ -406,10 +406,19 @@ body::after {
 .hero-actions {
   --hero-action-row-height: 5rem;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
   gap: 0.5rem;
-  align-items: center;
+  align-items: start;
   margin-bottom: 0;
+}
+
+.hero-actions__primary {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .hero-actions__cell {
@@ -420,15 +429,26 @@ body::after {
   min-height: var(--hero-action-row-height);
 }
 
-/* Duck Hunt hound — patrol GIF (walk / sniff / turn) inside hero-card */
+.hero-player {
+  --spotify-embed-height: 152px;
+  width: 100%;
+  min-width: min(100%, 20rem);
+}
+
+.hero-player .player-wrap {
+  border-color: color-mix(in srgb, var(--c4) 55%, var(--s4));
+  padding: 0.15rem;
+}
+
+/* Duck Hunt hound — patrol above bio (under hero CTA column) */
 .hero-dog {
   --duck-hound-width: 4.8rem;
   --duck-hound-height: calc(var(--duck-hound-width) * 76 / 96);
   --duck-hound-travel: calc(100% - var(--duck-hound-width));
   --duck-hound-patrol-duration: 6s;
-  margin-top: 0.65rem;
-  padding-top: 0.35rem;
-  border-top: 2px dashed color-mix(in srgb, var(--s4) 35%, transparent);
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px dashed color-mix(in srgb, var(--s4) 35%, transparent);
 }
 
 .hero-dog__track {
@@ -822,39 +842,34 @@ section.panel h2 {
   color: #e4405f;
 }
 
-/* Spotify player + bio — side by side on wide viewports */
+/* Bio column — aligns under hero CTA on wide viewports; hound sits above bio */
 .listen-bio-row {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  grid-template-columns: 1fr;
   gap: 1.25rem;
-  align-items: stretch;
   margin-bottom: 2rem;
 }
 
-.listen-bio-row > .panel {
-  margin-bottom: 0;
-  min-width: 0;
-  height: 100%;
-}
-
-@media (max-width: 820px) {
+@media (min-width: 880px) {
   .listen-bio-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  .listen-bio-row__bio-stack {
+    grid-column: 2;
   }
 }
 
-.player-panel {
-  --spotify-embed-height: 352px;
-  border-color: var(--c4);
-  background: linear-gradient(
-    180deg,
-    var(--p5) 0%,
-    color-mix(in srgb, var(--p5) 70%, var(--t5)) 100%
-  );
+.listen-bio-row__bio-stack {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
-.player-panel h2 {
-  margin-bottom: 0.65rem;
+.listen-bio-row__bio-stack > .panel {
+  margin-bottom: 0;
+  min-width: 0;
+  flex: 1;
 }
 
 .bio-panel {
@@ -878,7 +893,7 @@ section.panel h2 {
 
 .spotify-embed-host {
   width: 100%;
-  min-height: var(--spotify-embed-height, 352px);
+  min-height: var(--spotify-embed-height, 152px);
   background: var(--spotify-embed-chrome);
   border-radius: 10px;
 }
@@ -886,8 +901,8 @@ section.panel h2 {
 .spotify-embed-host iframe {
   display: block;
   width: 100%;
-  height: var(--spotify-embed-height, 352px);
-  min-height: var(--spotify-embed-height, 352px);
+  height: var(--spotify-embed-height, 152px);
+  min-height: var(--spotify-embed-height, 152px);
   border: 0;
   border-radius: 12px;
   background: var(--spotify-embed-chrome);
