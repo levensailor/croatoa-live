@@ -194,44 +194,19 @@ body::after {
   outline-offset: 2px;
 }
 
-/* hero */
-/* Hero + listen row — TV spans left; bio/peek aligns with Spotify on wide screens */
+/* hero — TV + CTA card (Spotify lives in the CTA stack) */
 .hero-listen {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-areas:
-    "tv"
-    "head"
-    "player"
-    "bio-col";
   gap: 1.25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   align-items: stretch;
-}
-
-.hero-listen .tv-frame {
-  grid-area: tv;
-}
-
-.hero-listen .hero-side {
-  grid-area: head;
-}
-
-.hero-listen .hero-player-slot {
-  grid-area: player;
-}
-
-.hero-listen .listen-bio-column {
-  grid-area: bio-col;
 }
 
 @media (min-width: 880px) {
   .hero-listen {
     grid-template-columns: 1.1fr 0.9fr;
-    grid-template-rows: auto 1fr;
-    grid-template-areas:
-      "tv head"
-      "bio-col player";
+    align-items: stretch;
   }
 }
 
@@ -904,13 +879,14 @@ section.panel h2 {
   color: #e4405f;
 }
 
-/* Hound + Clooney peek + bio — left column; pairs with Spotify on wide layouts */
-.listen-bio-column {
+/* Hound + Clooney peek + full-width bio */
+.listen-bio-row {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 0.55rem;
-  min-width: 0;
-  min-height: 0;
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
 .bio-with-peek {
@@ -980,13 +956,10 @@ section.panel h2 {
   }
 }
 
-.hero-player-slot {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  min-width: 0;
+.listen-bio-row > .panel {
   width: 100%;
-  max-width: 100%;
+  margin-bottom: 0;
+  min-width: 0;
 }
 
 .bio-panel {

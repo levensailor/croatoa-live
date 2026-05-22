@@ -66,33 +66,32 @@ export default function HomePage() {
                   </div>
                   <StreamingLogos />
                 </div>
+                <div
+                  className="hero-player"
+                  id="player"
+                  aria-label="Spotify player"
+                >
+                  <SpotifyEmbedHost />
+                </div>
               </div>
             </div>
           </div>
-
-          <div className="listen-bio-column">
-            <SleepingDog />
-            <div className="bio-with-peek">
-              <BioPeekGif />
-              <section
-                className="panel bio-panel"
-                id="bio"
-                aria-labelledby="bio-heading"
-              >
-                <h2 id="bio-heading">Bio</h2>
-                <BioExpandable teaser={bioTeaser} rest={bioRest} />
-              </section>
-            </div>
-          </div>
-
-          <div
-            className="hero-player-slot hero-player"
-            id="player"
-            aria-label="Spotify player"
-          >
-            <SpotifyEmbedHost />
-          </div>
         </section>
+
+        <div className="listen-bio-row">
+          <SleepingDog />
+          <div className="bio-with-peek">
+            <BioPeekGif />
+            <section
+              className="panel bio-panel"
+              id="bio"
+              aria-labelledby="bio-heading"
+            >
+              <h2 id="bio-heading">Bio</h2>
+              <BioExpandable teaser={bioTeaser} rest={bioRest} />
+            </section>
+          </div>
+        </div>
 
         <BandsintownShowsSection />
 
