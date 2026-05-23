@@ -16,6 +16,9 @@ export const dreamcatcherHangGifPath = "/dreamcatcher-hang.gif";
 
 export const artistDisplayName = "CROATOA";
 
+/** Site header wordmark */
+export const siteLogoPath = "/croatoa.png";
+
 export const artistTagline =
   "Rock band from Wilmington, NC — bass-driven, loud, and lyric-forward.";
 

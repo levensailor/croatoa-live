@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BandsintownShowsSection } from "@/components/BandsintownShowsSection";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { ShowsNavLink } from "@/components/ShowsNavLink";
@@ -16,6 +17,7 @@ import {
   bookingEmail,
   cityRegion,
   heroSlideshowSlides,
+  siteLogoPath,
 } from "@/lib/site-config";
 
 export default function HomePage() {
@@ -26,10 +28,14 @@ export default function HomePage() {
       <div className="top-rgb" aria-hidden="true" />
       <header className="site-header">
         <div className="logo-lockup">
-          <strong>{artistDisplayName}</strong>
-          <span>
-            {cityRegion} · channel 00 · stereo crush
-          </span>
+          <Image
+            src={siteLogoPath}
+            alt={artistDisplayName}
+            width={956}
+            height={344}
+            className="site-logo"
+            priority
+          />
         </div>
         <nav className="nav-chips" aria-label="Page sections">
           <a href="#listen">Listen</a>

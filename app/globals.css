@@ -140,24 +140,18 @@ body::after {
 
 .logo-lockup {
   display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
 }
 
-.logo-lockup strong {
-  font-family: var(--font-pixel);
-  font-size: clamp(0.65rem, 2.5vw, 0.85rem);
-  letter-spacing: 0.08em;
-  color: var(--s1);
-  text-shadow:
-    2px 0 var(--t3),
-    -2px 0 var(--c4);
-}
-
-.logo-lockup span {
-  font-size: 0.8rem;
-  color: var(--c2);
-  font-weight: 600;
+.site-logo {
+  display: block;
+  width: auto;
+  height: clamp(2.35rem, 7.5vw, 3.35rem);
+  max-width: min(100%, 15rem);
+  object-fit: contain;
+  object-position: left center;
 }
 
 .nav-chips {
