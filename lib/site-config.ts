@@ -11,6 +11,9 @@ export const clooneyPeekGifPath = "/george-clooney-snooping.gif";
 /** Yin-yang — dangles from the hero CTA card over the hound. */
 export const yinYangHangGifPath = "/yin-yang-hang.gif";
 
+/** Dreamcatcher — same CTA hang row, right of the yin-yang. */
+export const dreamcatcherHangGifPath = "/dreamcatcher-hang.gif";
+
 export const artistDisplayName = "CROATOA";
 
 export const artistTagline =

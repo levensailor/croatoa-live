@@ -394,30 +394,52 @@ body::after {
   box-shadow: 8px 8px 0 var(--c5);
 }
 
-/* Yin-yang — hangs from CTA card bottom, drops over the hound patrol */
-.yin-yang-hang {
+/* CTA charms — yin-yang + dreamcatcher hang from card bottom over the hound */
+.cta-charms-hang {
+  --cta-charm-width: clamp(3rem, 10vw, 4.75rem);
+  --cta-charm-max-height: clamp(3.25rem, 11vw, 5.25rem);
   position: absolute;
   top: calc(100% - 2px);
-  left: 32%;
+  left: 0;
+  right: 0;
+  height: 0;
   z-index: 30;
   pointer-events: none;
+}
+
+.cta-charm {
+  position: absolute;
+  top: 0;
   line-height: 0;
   transform: translateX(-50%);
   filter: drop-shadow(0 5px 14px rgb(0 0 0 / 55%));
 }
 
-.yin-yang-hang__gif {
+.cta-charm--yin-yang {
+  left: 30%;
+  --cta-charm-duration: 14s;
+  --cta-charm-delay: 0s;
+}
+
+.cta-charm--dreamcatcher {
+  left: 52%;
+  --cta-charm-duration: 18.5s;
+  --cta-charm-delay: -6.8s;
+}
+
+.cta-charm__gif {
   display: block;
-  width: clamp(3rem, 10vw, 4.75rem);
+  width: var(--cta-charm-width);
   height: auto;
-  max-height: clamp(3.25rem, 11vw, 5.25rem);
+  max-height: var(--cta-charm-max-height);
   object-fit: contain;
   object-position: top center;
   transform-origin: top center;
-  animation: yin-yang-dangle 14s ease-in-out infinite;
+  animation: cta-charm-dangle var(--cta-charm-duration) ease-in-out infinite;
+  animation-delay: var(--cta-charm-delay);
 }
 
-@keyframes yin-yang-dangle {
+@keyframes cta-charm-dangle {
   0%,
   20%,
   100% {
@@ -436,10 +458,14 @@ body::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .yin-yang-hang__gif {
+  .cta-charm__gif {
     animation: none;
     transform: translateY(12%);
     opacity: 0.85;
+  }
+
+  .cta-charm--dreamcatcher .cta-charm__gif {
+    transform: translateY(18%);
   }
 }
 
