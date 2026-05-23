@@ -19,6 +19,22 @@ export const artistDisplayName = "CROATOA";
 /** Site header wordmark */
 export const siteLogoPath = "/croatoa.png";
 
+export const albumTitle = "Start a Fire";
+
+/** Human-readable release date for header / promo copy */
+export const albumReleaseDateLabel = "June 1st";
+
+/** DistroKid HyperFollow — release landing page */
+export const hyperfollowUrl =
+  "https://distrokid.com/hyperfollow/croatoa/start-a-fire-2?ref=release";
+
+/**
+ * Spotify Pre-Save via DistroKid (same endpoint as HyperFollow “Spotify Pre-Save”).
+ * @see https://distrokid.com/hyperfollow/croatoa/start-a-fire-2?ref=release
+ */
+export const spotifyPresaveUrl =
+  "https://distrokid.com/spotify/auth/?action=hyperfollow&artistNameShortcut=croatoa&albumIdShortcut=start-a-fire-2&ref=release";
+
 export const artistTagline =
   "Rock band from Wilmington, NC — bass-driven, loud, and lyric-forward.";
 

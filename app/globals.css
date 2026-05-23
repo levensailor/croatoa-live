@@ -138,10 +138,19 @@ body::after {
     inset 0 0 0 1px color-mix(in srgb, var(--s1) 25%, transparent);
 }
 
+.site-header__brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 1rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .logo-lockup {
   display: flex;
   align-items: center;
-  flex: 0 1 auto;
+  flex: 0 0 auto;
   min-width: 0;
 }
 
@@ -152,6 +161,33 @@ body::after {
   max-width: min(100%, 15rem);
   object-fit: contain;
   object-position: left center;
+}
+
+.header-presave {
+  margin: 0;
+  flex: 1 1 12rem;
+  min-width: 0;
+  font-size: clamp(0.82rem, 2.2vw, 0.95rem);
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--s1);
+}
+
+.header-presave a {
+  color: var(--c1);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.15em;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--c3) 35%, transparent);
+}
+
+.header-presave a:hover {
+  color: var(--p1);
+}
+
+.header-presave a:focus-visible {
+  outline: 2px solid var(--c1);
+  outline-offset: 2px;
 }
 
 .nav-chips {

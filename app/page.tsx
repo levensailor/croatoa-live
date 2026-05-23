@@ -17,7 +17,10 @@ import {
   bookingEmail,
   cityRegion,
   heroSlideshowSlides,
+  albumReleaseDateLabel,
+  albumTitle,
   siteLogoPath,
+  spotifyPresaveUrl,
 } from "@/lib/site-config";
 
 export default function HomePage() {
@@ -27,15 +30,27 @@ export default function HomePage() {
     <div className="shell">
       <div className="top-rgb" aria-hidden="true" />
       <header className="site-header">
-        <div className="logo-lockup">
-          <Image
-            src={siteLogoPath}
-            alt={artistDisplayName}
-            width={956}
-            height={344}
-            className="site-logo"
-            priority
-          />
+        <div className="site-header__brand">
+          <div className="logo-lockup">
+            <Image
+              src={siteLogoPath}
+              alt={artistDisplayName}
+              width={956}
+              height={344}
+              className="site-logo"
+              priority
+            />
+          </div>
+          <p className="header-presave">
+            {albumTitle} out {albumReleaseDateLabel} —{" "}
+            <a
+              href={spotifyPresaveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Presave now
+            </a>
+          </p>
         </div>
         <nav className="nav-chips" aria-label="Page sections">
           <a href="#listen">Listen</a>
