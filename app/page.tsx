@@ -4,6 +4,7 @@ import { ShowsNavLink } from "@/components/ShowsNavLink";
 import { DropNeedleButton } from "@/components/DropNeedleButton";
 import { BioPeekGif } from "@/components/BioPeekGif";
 import { SleepingDog } from "@/components/SleepingDog";
+import { YinYangHang } from "@/components/YinYangHang";
 import { StreamingLogos } from "@/components/StreamingLogos";
 import { SpotifyEmbedHost } from "@/components/SpotifyEmbedHost";
 import { SpotifyPlayerProvider } from "@/components/SpotifyPlayerProvider";
@@ -57,6 +58,7 @@ export default function HomePage() {
 
           <div className="hero-side">
             <div className="hero-card">
+              <YinYangHang />
               <h1 id="hero-heading">{artistDisplayName}</h1>
               <p className="lede">{artistTagline}</p>
               <div className="hero-cta-stack" id="listen">

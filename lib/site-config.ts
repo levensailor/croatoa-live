@@ -8,6 +8,9 @@ export const productionSiteUrl = "https://croatoa.live";
 /** Clooney peek GIF — rises along the top edge of the bio panel. */
 export const clooneyPeekGifPath = "/george-clooney-snooping.gif";
 
+/** Yin-yang — dangles from the hero CTA card over the hound. */
+export const yinYangHangGifPath = "/yin-yang-hang.gif";
+
 export const artistDisplayName = "CROATOA";
 
 export const artistTagline =

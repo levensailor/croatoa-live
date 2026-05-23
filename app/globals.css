@@ -196,11 +196,14 @@ body::after {
 
 /* hero — TV + CTA card (Spotify lives in the CTA stack) */
 .hero-listen {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.25rem;
   margin-bottom: 1.25rem;
   align-items: stretch;
+  overflow: visible;
 }
 
 @media (min-width: 880px) {
@@ -369,12 +372,18 @@ body::after {
 }
 
 .hero-side {
+  position: relative;
+  z-index: 12;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  overflow: visible;
 }
 
 .hero-card {
+  position: relative;
+  z-index: 12;
+  overflow: visible;
   padding: 1.25rem;
   border: 4px solid var(--t2);
   background: linear-gradient(
@@ -383,6 +392,55 @@ body::after {
     var(--p5) 100%
   );
   box-shadow: 8px 8px 0 var(--c5);
+}
+
+/* Yin-yang — hangs from CTA card bottom, drops over the hound patrol */
+.yin-yang-hang {
+  position: absolute;
+  top: calc(100% - 2px);
+  left: 32%;
+  z-index: 30;
+  pointer-events: none;
+  line-height: 0;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 5px 14px rgb(0 0 0 / 55%));
+}
+
+.yin-yang-hang__gif {
+  display: block;
+  width: clamp(3rem, 10vw, 4.75rem);
+  height: auto;
+  max-height: clamp(3.25rem, 11vw, 5.25rem);
+  object-fit: contain;
+  object-position: top center;
+  transform-origin: top center;
+  animation: yin-yang-dangle 14s ease-in-out infinite;
+}
+
+@keyframes yin-yang-dangle {
+  0%,
+  20%,
+  100% {
+    transform: translateY(-98%) scale(0.88);
+    opacity: 0;
+  }
+  28%,
+  70% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  78% {
+    transform: translateY(32%) scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yin-yang-hang__gif {
+    animation: none;
+    transform: translateY(12%);
+    opacity: 0.85;
+  }
 }
 
 .hero-card h1 {
@@ -489,6 +547,8 @@ body::after {
   --duck-hound-height: calc(var(--duck-hound-width) * 76 / 96);
   --duck-hound-travel: calc(100% - var(--duck-hound-width));
   --duck-hound-patrol-duration: 6s;
+  position: relative;
+  z-index: 1;
   margin: 0 0 0.75rem;
   padding-bottom: 0.35rem;
   border-bottom: 2px dashed color-mix(in srgb, var(--s4) 35%, transparent);
@@ -937,6 +997,8 @@ section.panel h2 {
 
 /* Hound + Clooney peek + full-width bio */
 .listen-bio-row {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: stretch;
