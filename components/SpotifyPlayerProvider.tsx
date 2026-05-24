@@ -23,6 +23,7 @@ type SpotifyPlayerContextValue = {
   ready: boolean;
   isPlaying: boolean;
   playFromNeedle: () => void;
+  toggleFromNeedle: () => void;
   setEmbedHost: (node: HTMLDivElement | null) => void;
 };
 
@@ -96,9 +97,14 @@ export function SpotifyPlayerProvider({ children }: { children: ReactNode }) {
     }
   }, [controller]);
 
+  const toggleFromNeedle = useCallback(() => {
+    if (!controller) return;
+    controller.togglePlay();
+  }, [controller]);
+
   return (
     <SpotifyPlayerContext.Provider
-      value={{ ready, isPlaying, playFromNeedle, setEmbedHost }}
+      value={{ ready, isPlaying, playFromNeedle, toggleFromNeedle, setEmbedHost }}
     >
       {children}
     </SpotifyPlayerContext.Provider>

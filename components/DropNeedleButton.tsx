@@ -20,7 +20,7 @@ export function DropNeedleButton() {
     return () => mq.removeEventListener("change", update);
   }, []);
 
-  const isPlaying = Boolean(dropped && player?.isPlaying);
+  const isPlaying = Boolean(player?.isPlaying);
   const showPlayingGif = Boolean(isPlaying && !reduceMotion);
   const showHoverSpin = Boolean(hovered && !reduceMotion && !showPlayingGif);
   const src = showPlayingGif ? TURNTABLE_ANIM : TURNTABLE_STILL;
@@ -45,7 +45,11 @@ export function DropNeedleButton() {
 
   const handleClick = () => {
     setDropped(true);
-    player.playFromNeedle();
+    if (player.isPlaying) {
+      player.toggleFromNeedle();
+    } else {
+      player.playFromNeedle();
+    }
   };
 
   return (
@@ -65,7 +69,11 @@ export function DropNeedleButton() {
       onMouseLeave={() => setHovered(false)}
       onFocus={() => setHovered(true)}
       onBlur={() => setHovered(false)}
-      aria-label="Drop needle and play on Spotify"
+      aria-label={
+        player.isPlaying
+          ? "Lift needle and pause playback"
+          : "Drop needle and play on Spotify"
+      }
       aria-pressed={player.isPlaying}
     >
       <img
